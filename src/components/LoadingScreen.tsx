@@ -23,19 +23,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
         >
           <img 
             src="/image copy.png" 
-            alt="The Zen Retreats" 
+            alt="Logo" 
             className="h-16 w-auto mx-auto"
           />
         </motion.div>
         
-        <motion.h1
-          className="text-4xl md:text-6xl font-bold text-white zen-font mb-4"
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          The Zen Retreats
-        </motion.h1>
+
         
         <motion.p
           className="text-xl text-white/80"

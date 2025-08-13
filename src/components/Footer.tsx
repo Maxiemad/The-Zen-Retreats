@@ -15,7 +15,7 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <img 
-              src="/image copy.png" 
+              src="/d89015fd-5281-4afb-8cb0-c2b1a658c0bc.png" 
               alt="The Zen Retreats" 
               className="h-10 w-auto"
             />

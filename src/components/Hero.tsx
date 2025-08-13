@@ -74,9 +74,8 @@ const Hero = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              The
+              The{' '}
             </motion.span>
-            <br />
             <motion.span
               className="zen-text-gradient bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent"
               initial={{ opacity: 0, x: 50 }}
