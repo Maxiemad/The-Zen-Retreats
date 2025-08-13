@@ -9,6 +9,20 @@ const LocalAttractions = () => {
     threshold: 0.1,
   });
 
+  const handlePlanAdventure = () => {
+    const subject = encodeURIComponent('Plan My Adventure at The Zen Retreats');
+    const body = encodeURIComponent(`Hello Team The Zen Retreats,
+
+I'd love to plan an adventure visit. Could you share available packages, recommended itineraries, and pricing?
+I'm considering dates around [Month/Date], for [X] people, with interests in [trekking/yoga/wellness].
+Please let me know next steps and any essentials to prepare.
+
+Thanks and Regards,
+[Your Name]`);
+    
+    window.location.href = `mailto:info@thezenretreats.com?subject=${subject}&body=${body}`;
+  };
+
   const attractions = [
     {
       name: 'Lake Shasta Caverns',
@@ -124,6 +138,7 @@ const LocalAttractions = () => {
             The city of Redding is only 20 minutes away with all modern amenities, including a local airport.
           </p>
           <motion.button
+            onClick={handlePlanAdventure}
             className="px-8 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold rounded-full hover:from-emerald-600 hover:to-teal-600 transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

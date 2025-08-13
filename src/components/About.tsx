@@ -158,20 +158,46 @@ const About = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: 'Yoga Retreats', emoji: '🧘‍♀️' },
-              { title: 'Meditation & Spiritual Retreats', emoji: '🕉️' },
-              { title: 'Corporate Off-sites', emoji: '💼' },
-              { title: 'Family Reunions', emoji: '👨‍👩‍👧‍👦' }
+              { 
+                title: 'Yoga Retreats', 
+                image: '/Yoga-Poses-For-Beginners-Wallpaper-for-Wall-710x488.jpg',
+                alt: 'Yoga poses for beginners'
+              },
+              { 
+                title: 'Meditation & Spiritual Retreats', 
+                image: '/HD-wallpaper-buddha-nature-lotus-relaxing-peace-meditation-thumbnail.jpg',
+                alt: 'Buddha meditation lotus'
+              },
+              { 
+                title: 'Corporate Off-sites', 
+                image: '/1.png',
+                alt: 'Corporate meeting'
+              },
+              { 
+                title: 'Family Reunions', 
+                image: '/pexels-photo-5638612.jpeg',
+                alt: 'Family gathering'
+              }
             ].map((item, index) => (
               <motion.div
                 key={item.title}
-                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300"
+                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300 overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 1.8 + index * 0.1 }}
-                whileHover={{ y: -5 }}
+                whileHover={{ y: -5, scale: 1.02 }}
               >
-                <div className="text-4xl mb-4">{item.emoji}</div>
+                <motion.div 
+                  className="w-24 h-24 mx-auto mb-6 rounded-lg overflow-hidden"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img 
+                    src={item.image} 
+                    alt={item.alt}
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
                 <h3 className="font-semibold text-gray-800">{item.title}</h3>
               </motion.div>
             ))}

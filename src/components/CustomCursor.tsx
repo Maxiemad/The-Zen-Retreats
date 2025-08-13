@@ -77,11 +77,9 @@ const CustomCursor = () => {
   const variants = {
     default: {
       scale: 1,
-      backgroundColor: '#4CDCCB',
     },
     hover: {
       scale: 2,
-      backgroundColor: '#44A08D',
       mixBlendMode: 'difference' as const,
     },
   };
@@ -92,7 +90,7 @@ const CustomCursor = () => {
     <>
       <motion.div
         ref={cursorRef}
-        className="fixed w-8 h-8 rounded-full border border-white/30 pointer-events-none z-50"
+        className="fixed w-8 h-8 rounded-full border-2 border-emerald-400 bg-transparent pointer-events-none z-50"
         variants={variants}
         animate={cursorVariant}
         transition={{
@@ -107,10 +105,9 @@ const CustomCursor = () => {
       />
       <motion.div
         ref={dotRef}
-        className="fixed w-4 h-4 rounded-full pointer-events-none z-50 mix-blend-difference"
+        className="fixed w-4 h-4 rounded-full pointer-events-none z-50 bg-black"
         style={{
           willChange: 'transform',
-          backgroundColor: '#4CDCCB',
         }}
       />
     </>

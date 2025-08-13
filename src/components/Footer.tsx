@@ -3,6 +3,19 @@ import { motion } from 'framer-motion';
 import { Heart, Instagram } from 'lucide-react';
 
 const Footer = () => {
+  const handleReachOut = () => {
+    const subject = encodeURIComponent('Inquiry About The Zen Retreats');
+    const body = encodeURIComponent(`Hello Team Zen Retreats,
+
+I visited your website and would like to know more about the offerings.
+I am particularly interested in understanding the services, pricing, and availability.
+Please share any brochures or details that could help me learn more.
+
+Thanks and Regards,
+[Your Name]`);
+    
+    window.location.href = `mailto:info@thezenretreats.com?subject=${subject}&body=${body}`;
+  };
   return (
     <footer className="bg-black text-white py-12">
       <div className="container mx-auto px-6">
@@ -22,12 +35,20 @@ const Footer = () => {
           </motion.div>
 
           <motion.div
-            className="flex justify-center mb-8"
+            className="flex justify-center items-center space-x-4 mb-8"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
+            <motion.button
+              onClick={handleReachOut}
+              className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold rounded-full hover:from-emerald-600 hover:to-teal-600 transition-all duration-300"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Reach Out
+            </motion.button>
             <motion.a
               href="https://instagram.com/thezen.retreats"
               className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300"

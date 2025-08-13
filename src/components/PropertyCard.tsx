@@ -21,6 +21,20 @@ interface PropertyCardProps {
 const PropertyCard: React.FC<PropertyCardProps> = ({ property, index, inView }) => {
   const isReverse = index % 2 === 1;
 
+  const handleReachOut = () => {
+    const subject = encodeURIComponent(`Inquiry About ${property.name} - The Zen Retreats`);
+    const body = encodeURIComponent(`Hello Team Zen Retreats,
+
+I visited your website and I'm interested in learning more about ${property.name}.
+I would like to know more about the property details, availability, pricing, and booking process.
+Please share any additional information, photos, or brochures that could help me make a decision.
+
+Thanks and Regards,
+[Your Name]`);
+    
+    window.location.href = `mailto:info@thezenretreats.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <motion.div
       className={`grid lg:grid-cols-2 gap-12 items-center ${isReverse ? 'lg:grid-flow-col-dense' : ''}`}
@@ -111,13 +125,14 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, index, inView }) 
         </motion.div>
 
         <motion.button
+          onClick={handleReachOut}
           className="flex items-center space-x-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors group"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.9 + index * 0.1 }}
           whileHover={{ x: 5 }}
         >
-          <span>View Details</span>
+          <span>Reach Out</span>
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </motion.button>
       </motion.div>
