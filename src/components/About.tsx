@@ -1,13 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Heart, Mountain, Waves, Sun } from 'lucide-react';
+import ImageCarousel from './ImageCarousel';
 
 const About = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const carouselImages = [
+    {
+      src: '/img1.png',
+      title: 'The Lake. The Hills. Beautiful Sunrises.',
+      subtitle: 'Experience tranquility like never before'
+    },
+    {
+      src: '/img2.png',
+      title: 'Whispers of the Sea',
+      subtitle: 'Where waves meet the horizon, and time stands still.'
+    },
+    {
+      src: '/img3.png',
+      title: 'Golden Meadows',
+      subtitle: 'Bask in the glow of endless fields under the summer sun.'
+    },
+    {
+      src: '/img4.png',
+      title: 'Misty Mountain Mornings',
+      subtitle: 'Awake to the quiet embrace of the clouds.'
+    },
+    {
+      src: '/img5.png',
+      title: 'Twilight Over the Valley',
+      subtitle: 'Watch as the sky paints its final masterpiece of the day.'
+    },
+    {
+      src: '/1.png',
+      title: 'The Forest\'s Secret',
+      subtitle: 'Step into a world where every leaf tells a story.'
+    }
+  ];
 
   const features = [
     {
@@ -100,30 +136,23 @@ const About = () => {
             </motion.div>
           </motion.div>
 
-          {/* Image */}
+          {/* Image Carousel */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative"
           >
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-              <img
-                src="https://images.pexels.com/photos/1268855/pexels-photo-1268855.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1"
-                alt="Zen Retreats Property"
-                className="w-full h-[600px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              <motion.div
-                className="absolute bottom-8 left-8 right-8 text-white"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: 1.2 }}
-              >
-                <h3 className="text-2xl font-bold zen-font mb-2">The Lake. The Hills. Beautiful Sunrises.</h3>
-                <p className="text-white/90">Experience tranquility like never before</p>
-              </motion.div>
-            </div>
+            <ImageCarousel
+              images={carouselImages}
+              autoSlideInterval={3500}
+              currentIndex={currentImageIndex}
+              onIndexChange={setCurrentImageIndex}
+              onImageChange={(index) => {
+                console.log('Current image index:', index);
+                setCurrentImageIndex(index);
+              }}
+            />
 
             {/* Floating Elements */}
             <motion.div
