@@ -81,10 +81,11 @@ const ZenParadise = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          <motion.h1 className="text-6xl md:text-8xl font-bold mb-6 zen-font"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
+          <motion.h1 className="text-6xl md:text-8xl font-bold mb-6 zen-font gradient-text-animated"
+            initial={{ opacity: 0, y: 30, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+            whileHover={{ scale: 1.05 }}
           >
             The Zen Paradise
           </motion.h1>
@@ -96,15 +97,18 @@ const ZenParadise = () => {
             A premium house with breathtaking lake views
           </motion.p>
           <motion.button
-            className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 flex items-center space-x-2 mx-auto"
+            className="bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 flex items-center space-x-2 mx-auto pulse-glow relative overflow-hidden group"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
           >
-            <span>Book Now</span>
-            <ArrowRight size={20} />
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+            />
+            <span className="relative z-10">Book Now</span>
+            <ArrowRight size={20} className="relative z-10" />
           </motion.button>
         </motion.div>
       </motion.section>

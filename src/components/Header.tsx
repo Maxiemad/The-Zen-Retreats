@@ -48,7 +48,7 @@ const Header = () => {
     { name: 'About', href: '#about', isLink: false },
     { name: 'Properties', href: '#properties', hasDropdown: true, dropdownItems: properties },
     { name: 'Local Attractions', href: '#attractions', hasDropdown: true, dropdownItems: attractions },
-    { name: 'Contact', href: '#contact', isLink: false },
+    { name: 'Contact', href: '/contact', isLink: true },
   ];
 
   const handleDropdownToggle = (e: React.MouseEvent, itemName: string) => {

@@ -119,17 +119,22 @@ const About = () => {
               {features.map((feature, index) => (
                 <motion.div
                   key={feature.title}
-                  className="flex items-start space-x-4"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
+                  className="flex items-start space-x-4 p-4 rounded-xl hover:bg-white/50 transition-all duration-300 group"
+                  initial={{ opacity: 0, x: -20, scale: 0.9 }}
+                  animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
                   transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
+                  whileHover={{ x: 5, scale: 1.02 }}
                 >
-                  <div className="flex-shrink-0 w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center">
+                  <motion.div 
+                    className="flex-shrink-0 w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center group-hover:bg-emerald-200 transition-colors duration-300"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  >
                     <feature.icon className="w-6 h-6 text-emerald-600" />
-                  </div>
+                  </motion.div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">{feature.title}</h3>
-                    <p className="text-gray-600 text-sm">{feature.description}</p>
+                    <h3 className="font-semibold text-gray-800 mb-2 group-hover:text-emerald-700 transition-colors duration-300">{feature.title}</h3>
+                    <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-300">{feature.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -210,24 +215,32 @@ const About = () => {
             ].map((item, index) => (
               <motion.div
                 key={item.title}
-                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300 overflow-hidden"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ duration: 0.6, delay: 1.8 + index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
+                whileHover={{ y: -8, scale: 1.05, rotateY: 5 }}
               >
                 <motion.div 
-                  className="w-24 h-24 mx-auto mb-6 rounded-lg overflow-hidden"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
+                  className="w-24 h-24 mx-auto mb-6 rounded-lg overflow-hidden relative"
+                  whileHover={{ scale: 1.15, rotate: 5 }}
+                  transition={{ duration: 0.4 }}
                 >
                   <img 
                     src={item.image} 
                     alt={item.alt}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-t from-emerald-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </motion.div>
-                <h3 className="font-semibold text-gray-800">{item.title}</h3>
+                <motion.h3 
+                  className="font-semibold text-gray-800 group-hover:text-emerald-600 transition-colors duration-300"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {item.title}
+                </motion.h3>
               </motion.div>
             ))}
           </div>

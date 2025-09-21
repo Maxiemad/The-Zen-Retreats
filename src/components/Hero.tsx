@@ -23,11 +23,13 @@ const Hero = () => {
       }}
     >
       <div className="absolute inset-0">
+        {/* Enhanced floating particles */}
         <motion.div
           className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/30 rounded-full"
           animate={{
             y: [0, -20, 0],
             opacity: [0.3, 1, 0.3],
+            scale: [1, 1.2, 1],
           }}
           transition={{
             duration: 3,
@@ -40,6 +42,7 @@ const Hero = () => {
           animate={{
             y: [0, -15, 0],
             opacity: [0.4, 1, 0.4],
+            scale: [1, 1.5, 1],
           }}
           transition={{
             duration: 2.5,
@@ -52,11 +55,55 @@ const Hero = () => {
           animate={{
             y: [0, -25, 0],
             opacity: [0.2, 0.8, 0.2],
+            scale: [1, 1.3, 1],
           }}
           transition={{
             duration: 4,
             repeat: Infinity,
             delay: 2,
+          }}
+        />
+        
+        {/* Additional floating elements */}
+        <motion.div
+          className="absolute top-1/2 right-1/4 w-1.5 h-1.5 bg-emerald-300/40 rounded-full"
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 10, 0],
+            opacity: [0.2, 0.8, 0.2],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            delay: 0.5,
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/3 w-2.5 h-2.5 bg-teal-300/30 rounded-full"
+          animate={{
+            y: [0, -20, 0],
+            x: [0, -15, 0],
+            opacity: [0.3, 0.9, 0.3],
+            scale: [1, 1.4, 1],
+          }}
+          transition={{
+            duration: 3.5,
+            repeat: Infinity,
+            delay: 1.5,
+          }}
+        />
+        <motion.div
+          className="absolute top-2/3 left-1/5 w-1 h-1 bg-white/50 rounded-full"
+          animate={{
+            y: [0, -35, 0],
+            opacity: [0.4, 1, 0.4],
+            rotate: [0, -180, -360],
+          }}
+          transition={{
+            duration: 4.5,
+            repeat: Infinity,
+            delay: 2.5,
           }}
         />
       </div>
@@ -70,17 +117,19 @@ const Hero = () => {
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white zen-font mb-6 text-shadow">
             <motion.span
-              initial={{ opacity: 0, x: -50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              initial={{ opacity: 0, x: -50, scale: 0.8 }}
+              animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+              whileHover={{ scale: 1.05 }}
             >
               The{' '}
             </motion.span>
             <motion.span
               className="zen-text-gradient bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent"
-              initial={{ opacity: 0, x: 50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              initial={{ opacity: 0, x: 50, scale: 0.8 }}
+              animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+              whileHover={{ scale: 1.05 }}
             >
               Zen Retreats
             </motion.span>
@@ -123,20 +172,36 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1.5 }}
           >
             <motion.button
-              className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold rounded-full hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 glow-effect"
+              className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold rounded-full hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 glow-effect relative overflow-hidden"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => document.getElementById('properties')?.scrollIntoView({ behavior: 'smooth' })}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 1.5 }}
             >
-              Explore Properties
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-400 opacity-0"
+                whileHover={{ opacity: 0.2 }}
+                transition={{ duration: 0.3 }}
+              />
+              <span className="relative z-10">Explore Properties</span>
             </motion.button>
             <motion.button
-              className="px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-gray-800 transition-all duration-300"
+              className="px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-gray-800 transition-all duration-300 relative overflow-hidden"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 1.7 }}
             >
-              Book Your Retreat
+              <motion.div
+                className="absolute inset-0 bg-white opacity-0"
+                whileHover={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              />
+              <span className="relative z-10">Book Your Retreat</span>
             </motion.button>
           </motion.div>
         </motion.div>
