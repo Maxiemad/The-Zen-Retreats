@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowRight, MapPin, Star } from 'lucide-react';
+import { ArrowRight, MapPin, Star, Mountain, Snowflake, Heart, Footprints, Zap, Leaf } from 'lucide-react';
 
 const MountShasta = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -18,16 +18,16 @@ const MountShasta = () => {
   ];
 
   const activities = [
-    { icon: '🏔️', title: 'Elevation', value: '14,179 feet' },
-    { icon: '❄️', title: 'Glaciers', value: 'Pristine' },
-    { icon: '🧘', title: 'Spiritual', value: 'Sacred Site' },
-    { icon: '🥾', title: 'Hiking', value: 'Multiple Trails' },
-    { icon: '⛷️', title: 'Skiing', value: 'Winter Sports' },
-    { icon: '🌿', title: 'Wildlife', value: 'Abundant' }
+    { icon: <Mountain className="w-8 h-8" />, title: 'Elevation', value: '14,179 feet' },
+    { icon: <Snowflake className="w-8 h-8" />, title: 'Glaciers', value: 'Pristine' },
+    { icon: <Heart className="w-8 h-8" />, title: 'Spiritual', value: 'Sacred Site' },
+    { icon: <Footprints className="w-8 h-8" />, title: 'Hiking', value: 'Multiple Trails' },
+    { icon: <Zap className="w-8 h-8" />, title: 'Skiing', value: 'Winter Sports' },
+    { icon: <Leaf className="w-8 h-8" />, title: 'Wildlife', value: 'Abundant' }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+    <div className="min-h-screen dramatic-bg-2 particle-bg floating-elements relative overflow-hidden">
       {/* Hero Section */}
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

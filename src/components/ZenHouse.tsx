@@ -65,7 +65,7 @@ const ZenHouse = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+    <div className="min-h-screen dramatic-bg-2 particle-bg floating-elements relative overflow-hidden">
       {/* Hero Section */}
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">

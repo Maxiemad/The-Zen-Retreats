@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowRight, MapPin, Star, Droplets, TreePine, Camera, Mountain, Fish } from 'lucide-react';
+import { ArrowRight, MapPin, Star, Droplets, TreePine, Camera, Mountain, Fish, Waves, Utensils, Footprints } from 'lucide-react';
 
 const McCloudFalls = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -18,25 +18,25 @@ const McCloudFalls = () => {
   ];
 
   const falls = [
-    { icon: '🌊', title: 'Upper Falls', value: 'Powerful Cascade' },
-    { icon: '🏄', title: 'Middle Falls', value: 'Natural Waterslides' },
-    { icon: '📸', title: 'Lower Falls', value: '50-foot Drop' },
-    { icon: '🏊', title: 'Swimming', value: 'Crystal-clear Pools' },
-    { icon: '🎣', title: 'Fishing', value: 'Trout Fisheries' },
-    { icon: '🥾', title: 'Hiking', value: 'Well-maintained Trails' }
+    { icon: <Droplets className="w-8 h-8" />, title: 'Upper Falls', value: 'Powerful Cascade' },
+    { icon: <Waves className="w-8 h-8" />, title: 'Middle Falls', value: 'Natural Waterslides' },
+    { icon: <Camera className="w-8 h-8" />, title: 'Lower Falls', value: '50-foot Drop' },
+    { icon: <Waves className="w-8 h-8" />, title: 'Swimming', value: 'Crystal-clear Pools' },
+    { icon: <Fish className="w-8 h-8" />, title: 'Fishing', value: 'Trout Fisheries' },
+    { icon: <Footprints className="w-8 h-8" />, title: 'Hiking', value: 'Well-maintained Trails' }
   ];
 
   const activities = [
-    { icon: '🏊', title: 'Swimming', value: 'Refreshing Pools' },
-    { icon: '🏄', title: 'Waterslides', value: 'Natural Rock Slides' },
-    { icon: '🎣', title: 'Fishing', value: 'Trout & Salmon' },
-    { icon: '🚣', title: 'Kayaking', value: 'McCloud River' },
-    { icon: '🧺', title: 'Picnicking', value: 'Riverside Spots' },
-    { icon: '📸', title: 'Photography', value: 'Stunning Views' }
+    { icon: <Waves className="w-8 h-8" />, title: 'Swimming', value: 'Refreshing Pools' },
+    { icon: <Waves className="w-8 h-8" />, title: 'Waterslides', value: 'Natural Rock Slides' },
+    { icon: <Fish className="w-8 h-8" />, title: 'Fishing', value: 'Trout & Salmon' },
+    { icon: <Waves className="w-8 h-8" />, title: 'Kayaking', value: 'McCloud River' },
+    { icon: <Utensils className="w-8 h-8" />, title: 'Picnicking', value: 'Riverside Spots' },
+    { icon: <Camera className="w-8 h-8" />, title: 'Photography', value: 'Stunning Views' }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+    <div className="min-h-screen dramatic-bg-2 particle-bg floating-elements relative overflow-hidden">
       {/* Hero Section */}
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -184,7 +184,7 @@ const McCloudFalls = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4">🌊</div>
+              <div className="text-4xl mb-4"><Droplets className="w-12 h-12 text-emerald-600" /></div>
               <h3 className="text-2xl font-bold mb-4">Upper Falls</h3>
               <p className="text-white/90 leading-relaxed">
                 Starting with Upper Falls, visitors are greeted with a powerful cascade of water plunging into a crystal-clear pool below. The sight and sound of the rushing water create a sense of awe and tranquility. The pool at the base of Upper Falls is also a popular swimming spot during the warmer months, offering a refreshing respite from the summer heat.
@@ -210,7 +210,7 @@ const McCloudFalls = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <div className="text-4xl mb-4">📸</div>
+              <div className="text-4xl mb-4"><Camera className="w-12 h-12 text-emerald-600" /></div>
               <h3 className="text-2xl font-bold mb-4">Lower Falls</h3>
               <p className="text-white/90 leading-relaxed">
                 Finally, Lower Falls awaits with its grandeur and majesty. This waterfall showcases a dramatic 50-foot drop, creating a mesmerizing display of cascading water. Lower Falls is a popular spot for photographers, who are drawn to capture the stunning beauty of the waterfall against the backdrop of the surrounding forested landscape.
@@ -295,7 +295,7 @@ const McCloudFalls = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4 text-center">🎣</div>
+              <div className="text-4xl mb-4 text-center"><Fish className="w-12 h-12 text-emerald-600" /></div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">Fishing Paradise</h3>
               <p className="text-gray-700 leading-relaxed">
                 In addition to the waterfalls, the McCloud River offers ample opportunities for fishing, kayaking, and picnicking along its banks. The river is renowned for its trout fisheries, attracting anglers from near and far who seek the thrill of casting a line in its pristine waters. Whether you are an experienced angler or a novice looking to try your hand at fishing, the McCloud River provides a serene and picturesque setting to test your skills.
@@ -308,7 +308,7 @@ const McCloudFalls = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="text-4xl mb-4 text-center">🚣</div>
+              <div className="text-4xl mb-4 text-center"><Waves className="w-12 h-12 text-emerald-600" /></div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">Water Activities</h3>
               <p className="text-gray-700 leading-relaxed">
                 The McCloud River provides the perfect setting for various water activities. From kayaking through the gentle currents to picnicking along the scenic riverbanks, visitors can enjoy a full day of outdoor recreation. The crystal-clear waters and surrounding natural beauty create an idyllic environment for relaxation and adventure.

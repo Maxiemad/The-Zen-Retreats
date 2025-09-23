@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowRight, MapPin, Star, ShoppingBag, Utensils, Camera, Mountain } from 'lucide-react';
+import { ArrowRight, MapPin, Star, ShoppingBag, Utensils, Camera, Mountain, Building, Car, Leaf, Theater } from 'lucide-react';
 
 const CityOfRedding = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -29,25 +29,25 @@ const CityOfRedding = () => {
   ];
 
   const attractions = [
-    { icon: '🌉', title: 'Sundial Bridge', value: 'Iconic Architecture' },
-    { icon: '🐢', title: 'Turtle Bay Park', value: 'Exploration & Gardens' },
-    { icon: '🏔️', title: 'Whiskeytown NRA', value: 'Hiking & Lake' },
-    { icon: '🏛️', title: 'Shasta Historic Park', value: 'Gold Rush History' },
-    { icon: '🛣️', title: 'Volcanic Legacy Byway', value: 'Scenic Drive' },
-    { icon: '🏗️', title: 'Shasta Dam', value: 'Engineering Marvel' }
+    { icon: <Building className="w-8 h-8" />, title: 'Sundial Bridge', value: 'Iconic Architecture' },
+    { icon: <Leaf className="w-8 h-8" />, title: 'Turtle Bay Park', value: 'Exploration & Gardens' },
+    { icon: <Mountain className="w-8 h-8" />, title: 'Whiskeytown NRA', value: 'Hiking & Lake' },
+    { icon: <Building className="w-8 h-8" />, title: 'Shasta Historic Park', value: 'Gold Rush History' },
+    { icon: <Car className="w-8 h-8" />, title: 'Volcanic Legacy Byway', value: 'Scenic Drive' },
+    { icon: <Building className="w-8 h-8" />, title: 'Shasta Dam', value: 'Engineering Marvel' }
   ];
 
   const activities = [
-    { icon: '🛍️', title: 'Shopping', value: 'Malls & Boutiques' },
-    { icon: '🍽️', title: 'Dining', value: 'Diverse Cuisine' },
-    { icon: '🎭', title: 'Culture', value: 'Cascade Theatre' },
-    { icon: '🌿', title: 'Nature', value: 'Parks & Gardens' },
-    { icon: '📸', title: 'Sightseeing', value: 'Iconic Landmarks' },
-    { icon: '🚗', title: 'Distance', value: '25 minutes' }
+    { icon: <ShoppingBag className="w-8 h-8" />, title: 'Shopping', value: 'Malls & Boutiques' },
+    { icon: <Utensils className="w-8 h-8" />, title: 'Dining', value: 'Diverse Cuisine' },
+    { icon: <Theater className="w-8 h-8" />, title: 'Culture', value: 'Cascade Theatre' },
+    { icon: <Leaf className="w-8 h-8" />, title: 'Nature', value: 'Parks & Gardens' },
+    { icon: <Camera className="w-8 h-8" />, title: 'Sightseeing', value: 'Iconic Landmarks' },
+    { icon: <Car className="w-8 h-8" />, title: 'Distance', value: '25 minutes' }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+    <div className="min-h-screen dramatic-bg-2 particle-bg floating-elements relative overflow-hidden">
       {/* Hero Section */}
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -173,7 +173,7 @@ const CityOfRedding = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4">🛍️</div>
+              <div className="text-4xl mb-4"><ShoppingBag className="w-12 h-12 text-emerald-600" /></div>
               <h3 className="text-2xl font-bold mb-4">Mt. Shasta Mall</h3>
               <p className="text-white/90 leading-relaxed">
                 As the largest shopping center in Redding, Mt. Shasta Mall is home to a wide range of popular stores and brands. From department stores like Macy's and JCPenney to specialty shops and boutiques, the mall offers a diverse shopping experience for fashion, home goods, electronics, and more.
@@ -242,7 +242,7 @@ const CityOfRedding = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4">🍽️</div>
+              <div className="text-4xl mb-4"><Utensils className="w-12 h-12 text-emerald-600" /></div>
               <h3 className="text-2xl font-bold mb-4">Downtown Dining</h3>
               <p className="text-white/90 leading-relaxed">
                 Redding's downtown area is a hub for diverse culinary experiences. From farm-to-table restaurants to international cuisines, the downtown district offers a range of dining options to satisfy any palate. Enjoy a meal at one of the many cozy cafes, upscale bistros, or vibrant eateries.
@@ -255,7 +255,7 @@ const CityOfRedding = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="text-4xl mb-4">🌊</div>
+              <div className="text-4xl mb-4"><Camera className="w-12 h-12 text-emerald-600" /></div>
               <h3 className="text-2xl font-bold mb-4">Riverfront Dining</h3>
               <p className="text-white/90 leading-relaxed">
                 Several restaurants in Redding offer picturesque views of the Sacramento River, allowing diners to savor their meals while enjoying the scenic beauty of the surroundings. These riverfront establishments provide a delightful atmosphere for a romantic dinner or a casual outing with friends and family.

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -16,6 +18,18 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle hash navigation on page load
+  useEffect(() => {
+    if (location.pathname === '/' && window.location.hash === '#about') {
+      setTimeout(() => {
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+          aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 500);
+    }
+  }, [location]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -56,6 +70,19 @@ const Header = () => {
     setActiveDropdown(activeDropdown === itemName ? null : itemName);
   };
 
+  const handleAboutClick = () => {
+    if (location.pathname === '/') {
+      // If on homepage, scroll to about section
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // If on other pages, navigate to homepage with about section
+      navigate('/#about');
+    }
+  };
+
   return (
     <motion.header
       className={`fixed top-0 w-full z-40 transition-all duration-500 ${
@@ -71,7 +98,6 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <motion.div
             className="flex items-center space-x-2"
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <Link to="/">
@@ -152,14 +178,14 @@ const Header = () => {
                         {item.name}
                       </Link>
                     ) : (
-                      <a
-                        href={item.href}
+                      <button
+                        onClick={handleAboutClick}
                         className={`font-medium transition-colors duration-300 hover:text-emerald-500 ${
                           isScrolled ? 'text-gray-700' : 'text-white'
                         }`}
                       >
                         {item.name}
-                      </a>
+                      </button>
                     )}
                   </motion.div>
                 )}
@@ -245,13 +271,15 @@ const Header = () => {
                         {item.name}
                       </Link>
                     ) : (
-                      <a
-                        href={item.href}
-                        className="block text-gray-700 font-medium hover:text-emerald-500 transition-colors"
-                        onClick={() => setIsMobileMenuOpen(false)}
+                      <button
+                        onClick={() => {
+                          handleAboutClick();
+                          setIsMobileMenuOpen(false);
+                        }}
+                        className="block text-gray-700 font-medium hover:text-emerald-500 transition-colors w-full text-left"
                       >
                         {item.name}
-                      </a>
+                      </button>
                     )}
                   </motion.div>
                 )}

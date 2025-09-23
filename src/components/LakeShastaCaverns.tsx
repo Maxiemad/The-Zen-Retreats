@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowRight, MapPin, Clock, Star } from 'lucide-react';
+import { ArrowRight, MapPin, Clock, Star, Timer, Bus, Users, Waves, Bird, Camera, Sparkles } from 'lucide-react';
 
 const LakeShastaCaverns = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -18,12 +18,12 @@ const LakeShastaCaverns = () => {
   ];
 
   const tourInfo = [
-    { icon: '⏱️', title: 'Tour Duration', value: '1.5 hours' },
-    { icon: '🚌', title: 'Transportation', value: 'Bus & Boat' },
-    { icon: '👥', title: 'Group Size', value: 'Guided Tours' },
-    { icon: '🌊', title: 'Boat Ride', value: '15 minutes' },
-    { icon: '🦅', title: 'Wildlife', value: 'Bald Eagles' },
-    { icon: '📸', title: 'Photo Ops', value: 'Unlimited' }
+    { icon: <Timer className="w-8 h-8" />, title: 'Tour Duration', value: '1.5 hours' },
+    { icon: <Bus className="w-8 h-8" />, title: 'Transportation', value: 'Bus & Boat' },
+    { icon: <Users className="w-8 h-8" />, title: 'Group Size', value: 'Guided Tours' },
+    { icon: <Waves className="w-8 h-8" />, title: 'Boat Ride', value: '15 minutes' },
+    { icon: <Bird className="w-8 h-8" />, title: 'Wildlife', value: 'Bald Eagles' },
+    { icon: <Camera className="w-8 h-8" />, title: 'Photo Ops', value: 'Unlimited' }
   ];
 
   return (
@@ -87,12 +87,12 @@ const LakeShastaCaverns = () => {
       </motion.section>
 
       {/* Overview Section */}
-      <motion.section ref={ref} className="py-20 px-6"
+      <motion.section ref={ref} className="py-20 px-6 dramatic-bg-2 particle-bg floating-elements relative overflow-hidden"
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 1 }}
       >
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto max-w-6xl relative z-10">
           <motion.div className="text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -114,15 +114,28 @@ const LakeShastaCaverns = () => {
             {tourInfo.map((info, index) => (
               <motion.div
                 key={info.title}
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center"
-                whileHover={{ y: -5 }}
+                className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center card-dramatic-hover ${
+                  index % 2 === 0 ? 'staggered-reveal-dramatic-left' : 'staggered-reveal-dramatic-right'
+                }`}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                transition={{ duration: 0.8, delay: 0.3 + index * 0.2 }}
+                onAnimationComplete={() => {
+                  const element = document.querySelector(`[data-tour="${index}"]`);
+                  if (element) {
+                    element.classList.add('revealed');
+                  }
+                }}
+                data-tour={index}
               >
-                <div className="text-4xl mb-4">{info.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">{info.title}</h3>
-                <p className="text-emerald-600 font-medium">{info.value}</p>
+                <motion.div 
+                  className="text-5xl mb-4"
+                  transition={{ duration: 0.5, type: "spring", stiffness: 300 }}
+                >
+                  {info.icon}
+                </motion.div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-emerald-600 transition-colors duration-300">{info.title}</h3>
+                <p className="text-emerald-600 font-medium text-lg">{info.value}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -175,7 +188,7 @@ const LakeShastaCaverns = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4">🚌</div>
+              <Bus className="w-12 h-12 mb-4" />
               <h3 className="text-2xl font-bold mb-4">Bus & Boat Adventure</h3>
               <p className="text-white/90 leading-relaxed">
                 The adventure begins with a scenic bus ride from the visitor's center to the shoreline of Shasta Lake. Then board a comfortable catamaran for a 15-minute boat ride across the lake to the entrance of the caverns, enjoying stunning scenery and wildlife including bald eagles and ospreys.
@@ -188,7 +201,7 @@ const LakeShastaCaverns = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="text-4xl mb-4">💎</div>
+              <Sparkles className="w-12 h-12 mb-4" />
               <h3 className="text-2xl font-bold mb-4">Crystal Room</h3>
               <p className="text-white/90 leading-relaxed">
                 One of the highlights is the stunning Crystal Room, filled with sparkling crystals illuminated by colorful lights, creating a magical atmosphere. The Rainbow Falls underground waterfall and Underground Chapel add to the mystical experience.

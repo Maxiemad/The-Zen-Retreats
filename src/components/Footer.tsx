@@ -44,7 +44,6 @@ Thanks and Regards,
             <motion.button
               onClick={handleReachOut}
               className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold rounded-full hover:from-emerald-600 hover:to-teal-600 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               Reach Out
@@ -52,7 +51,6 @@ Thanks and Regards,
             <motion.a
               href="https://instagram.com/thezen.retreats"
               className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300"
-              whileHover={{ scale: 1.1, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
             >
               <Instagram className="w-6 h-6 text-white" />

@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { MapPin, Clock, Star } from 'lucide-react';
+import { MapPin, Clock, Star, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const LocalAttractions = () => {
+  const navigate = useNavigate();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.3,
@@ -20,6 +22,23 @@ Thanks and Regards,
 [Your Name]`);
     
     window.location.href = `mailto:info@thezenretreats.com?subject=${subject}&body=${body}`;
+  };
+
+  const handleAttractionClick = (attractionName: string) => {
+    const routeMap: { [key: string]: string } = {
+      'Lake Shasta Caverns': '/lake-shasta-caverns',
+      'Mount Shasta': '/mount-shasta',
+      'Lassen Volcanic National Park': '/lassen-volcanic',
+      'City of Redding': '/city-of-redding',
+      'The Burney Falls': '/burney-falls',
+      'The McCloud Falls': '/mccloud-falls',
+      'Shasta Dam': '/shasta-dam'
+    };
+    
+    const route = routeMap[attractionName];
+    if (route) {
+      navigate(route);
+    }
   };
 
   const attractions = [
@@ -64,12 +83,19 @@ Thanks and Regards,
       distance: '1 hour',
       rating: 4.6,
       description: 'Three beautiful waterfalls along the McCloud River with swimming holes.'
+    },
+    {
+      name: 'Shasta Dam',
+      image: 'https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      distance: '25 minutes',
+      rating: 4.7,
+      description: 'Second tallest dam in the United States with guided tours and spectacular views.'
     }
   ];
 
   return (
-    <section id="attractions" className="py-20 bg-gradient-to-br from-emerald-50 to-teal-50">
-      <div className="container mx-auto px-6">
+    <section id="attractions" className="py-20 dramatic-bg-2 particle-bg floating-elements relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           ref={ref}
           className="text-center mb-16"
@@ -90,11 +116,19 @@ Thanks and Regards,
           {attractions.map((attraction, index) => (
             <motion.div
               key={attraction.name}
-              className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
+              className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group card-dramatic-hover ${
+                index % 2 === 0 ? 'staggered-reveal-dramatic-left' : 'staggered-reveal-dramatic-right'
+              }`}
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
-              whileHover={{ y: -8, scale: 1.02, rotateY: 5 }}
+              transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
+              onAnimationComplete={() => {
+                const element = document.querySelector(`[data-attraction="${index}"]`);
+                if (element) {
+                  element.classList.add('revealed');
+                }
+              }}
+              data-attraction={index}
             >
               <div className="relative overflow-hidden">
                 <img
@@ -106,25 +140,23 @@ Thanks and Regards,
                   className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 />
                 <motion.div 
-                  className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-2 py-1 flex items-center space-x-1"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.2 }}
+                  className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 flex items-center space-x-1"
+                  transition={{ duration: 0.4, type: "spring", stiffness: 300 }}
                 >
-                  <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                  <span className="text-sm font-semibold text-gray-800">{attraction.rating}</span>
+                  <Star className="w-5 h-5 text-yellow-500 fill-current" />
+                  <span className="text-sm font-bold text-gray-800">{attraction.rating}</span>
                 </motion.div>
               </div>
               
               <div className="p-6">
                 <motion.h3 
-                  className="text-xl font-bold text-gray-800 mb-3 group-hover:text-emerald-600 transition-colors duration-300"
-                  whileHover={{ scale: 1.05 }}
+                  className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-emerald-600 transition-colors duration-300"
                 >
                   {attraction.name}
                 </motion.h3>
-                <p className="text-gray-600 mb-4 text-sm group-hover:text-gray-700 transition-colors duration-300">{attraction.description}</p>
+                <p className="text-gray-600 mb-4 text-sm group-hover:text-gray-700 transition-colors duration-300 leading-relaxed">{attraction.description}</p>
                 
-                <div className="flex items-center justify-between text-sm text-gray-500">
+                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
                   <motion.div 
                     className="flex items-center space-x-1 group-hover:text-emerald-600 transition-colors duration-300"
                     whileHover={{ x: 2 }}
@@ -140,6 +172,16 @@ Thanks and Regards,
                     <span>Drive time</span>
                   </motion.div>
                 </div>
+                
+                <motion.button
+                  onClick={() => handleAttractionClick(attraction.name)}
+                  className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold py-2 px-4 rounded-lg hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 group"
+                  whileHover={{ scale: 1.02, y: -1 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <span>Explore Details</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </motion.button>
               </div>
             </motion.div>
           ))}

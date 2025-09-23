@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowRight, MapPin, Star, Droplets, TreePine, Camera, Mountain } from 'lucide-react';
+import { ArrowRight, MapPin, Star, Droplets, TreePine, Camera, Mountain, Waves, Footprints, Tent, Fish, Utensils, Bird } from 'lucide-react';
 
 const BurneyFalls = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -18,25 +18,25 @@ const BurneyFalls = () => {
   ];
 
   const features = [
-    { icon: '💧', title: 'Height', value: '129 feet' },
-    { icon: '🌊', title: 'Flow', value: 'Year-round' },
-    { icon: '🏞️', title: 'Park', value: 'McArthur-Burney Falls' },
-    { icon: '🥾', title: 'Hiking', value: 'Scenic Trails' },
-    { icon: '🏕️', title: 'Camping', value: 'Available' },
-    { icon: '🎣', title: 'Fishing', value: 'Burney Creek' }
+    { icon: <Waves className="w-8 h-8" />, title: 'Height', value: '129 feet' },
+    { icon: <Droplets className="w-8 h-8" />, title: 'Flow', value: 'Year-round' },
+    { icon: <TreePine className="w-8 h-8" />, title: 'Park', value: 'McArthur-Burney Falls' },
+    { icon: <Footprints className="w-8 h-8" />, title: 'Hiking', value: 'Scenic Trails' },
+    { icon: <Tent className="w-8 h-8" />, title: 'Camping', value: 'Available' },
+    { icon: <Fish className="w-8 h-8" />, title: 'Fishing', value: 'Burney Creek' }
   ];
 
   const activities = [
-    { icon: '📸', title: 'Photography', value: 'Stunning Views' },
-    { icon: '🥾', title: 'Hiking', value: 'Well-maintained Trails' },
-    { icon: '🏕️', title: 'Camping', value: 'State Park Facilities' },
-    { icon: '🎣', title: 'Fishing', value: 'Crystal-clear Waters' },
-    { icon: '🧺', title: 'Picnicking', value: 'Scenic Spots' },
-    { icon: '🦌', title: 'Wildlife', value: 'Deer & Bird Watching' }
+    { icon: <Camera className="w-8 h-8" />, title: 'Photography', value: 'Stunning Views' },
+    { icon: <Footprints className="w-8 h-8" />, title: 'Hiking', value: 'Well-maintained Trails' },
+    { icon: <Tent className="w-8 h-8" />, title: 'Camping', value: 'State Park Facilities' },
+    { icon: <Fish className="w-8 h-8" />, title: 'Fishing', value: 'Crystal-clear Waters' },
+    { icon: <Utensils className="w-8 h-8" />, title: 'Picnicking', value: 'Scenic Spots' },
+    { icon: <Bird className="w-8 h-8" />, title: 'Wildlife', value: 'Deer & Bird Watching' }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+    <div className="min-h-screen dramatic-bg-2 particle-bg floating-elements relative overflow-hidden">
       {/* Hero Section */}
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -184,7 +184,7 @@ const BurneyFalls = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4">💧</div>
+              <div className="text-4xl mb-4"><Waves className="w-12 h-12 text-emerald-600" /></div>
               <h3 className="text-2xl font-bold mb-4">Consistent Year-Round Flow</h3>
               <p className="text-white/90 leading-relaxed">
                 What sets Burney Falls apart from many other waterfalls is its consistent flow throughout the year. The falls are fed by underground springs, ensuring a steady stream of water even during the dry summer months. This reliable flow creates a mesmerizing scene that seems almost magical, as if the waterfall emerges from the heart of the earth itself.
@@ -197,7 +197,7 @@ const BurneyFalls = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="text-4xl mb-4">🌊</div>
+              <div className="text-4xl mb-4"><Droplets className="w-12 h-12 text-emerald-600" /></div>
               <h3 className="text-2xl font-bold mb-4">Curtain-Like Beauty</h3>
               <p className="text-white/90 leading-relaxed">
                 One of the distinguishing features of Burney Falls is its unique curtain-like appearance. The water plunges over the cliff in a single uninterrupted sheet, creating a stunning display of cascading water that tumbles into the emerald pool below. The constant spray generates a delicate mist that hangs in the air, adding to the ethereal ambiance.
@@ -306,7 +306,7 @@ const BurneyFalls = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="text-4xl mb-4 text-center">🦌</div>
+              <div className="text-4xl mb-4 text-center"><Bird className="w-12 h-12 text-emerald-600" /></div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">Abundant Wildlife</h3>
               <p className="text-gray-700 leading-relaxed">
                 The park offers a range of recreational activities, including camping, fishing, hiking, and picnicking, allowing visitors to immerse themselves in the natural splendor that surrounds Burney Falls. Wildlife such as deer, squirrels, and a variety of bird species can be spotted in the surrounding wilderness.

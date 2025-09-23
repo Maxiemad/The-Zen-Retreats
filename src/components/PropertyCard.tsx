@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Users, Home, Check, ArrowRight } from 'lucide-react';
+import { Users, Home, Check, ArrowRight, Eye } from 'lucide-react';
 import ImageCarousel from './ImageCarousel';
+import { useNavigate } from 'react-router-dom';
 
 interface Property {
   id: number;
@@ -20,6 +21,7 @@ interface PropertyCardProps {
 }
 
 const PropertyCard: React.FC<PropertyCardProps> = ({ property, index, inView }) => {
+  const navigate = useNavigate();
   const isReverse = index % 2 === 1;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [zenSpaceImageIndex, setZenSpaceImageIndex] = useState(0);
@@ -141,6 +143,19 @@ Thanks and Regards,
     window.location.href = `mailto:info@thezenretreats.com?subject=${subject}&body=${body}`;
   };
 
+  const handleViewDetails = () => {
+    const routeMap: { [key: string]: string } = {
+      'The Zen Paradise': '/zen-paradise',
+      'The Zen Space': '/zen-space',
+      'The Zen House': '/zen-house'
+    };
+    
+    const route = routeMap[property.name];
+    if (route) {
+      navigate(route);
+    }
+  };
+
   return (
     <motion.div
       className={`grid lg:grid-cols-2 gap-12 items-center ${isReverse ? 'lg:grid-flow-col-dense' : ''}`}
@@ -151,7 +166,6 @@ Thanks and Regards,
       {/* Image or Carousel */}
       <motion.div
         className={`relative ${isReverse ? 'lg:col-start-2' : ''}`}
-        whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.3 }}
       >
         {property.name === 'The Zen Paradise' ? (
@@ -267,17 +281,33 @@ Thanks and Regards,
           ))}
         </motion.div>
 
-        <motion.button
-          onClick={handleReachOut}
-          className="flex items-center space-x-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors group"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.9 + index * 0.1 }}
-          whileHover={{ x: 5 }}
-        >
-          <span>Reach Out</span>
-          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-        </motion.button>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <motion.button
+            onClick={handleViewDetails}
+            className="flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold py-3 px-6 rounded-lg hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 group"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.9 + index * 0.1 }}
+            whileHover={{ scale: 1.02, y: -1 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <Eye className="w-5 h-5" />
+            <span>View Details</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </motion.button>
+          
+          <motion.button
+            onClick={handleReachOut}
+            className="flex items-center justify-center space-x-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors group border-2 border-emerald-500 hover:bg-emerald-50 py-3 px-6 rounded-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.95 + index * 0.1 }}
+            whileHover={{ x: 2 }}
+          >
+            <span>Reach Out</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </motion.button>
+        </div>
       </motion.div>
     </motion.div>
   );

@@ -85,7 +85,6 @@ const ZenParadise = () => {
             initial={{ opacity: 0, y: 30, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
-            whileHover={{ scale: 1.05 }}
           >
             The Zen Paradise
           </motion.h1>
@@ -114,12 +113,12 @@ const ZenParadise = () => {
       </motion.section>
 
       {/* Overview Section */}
-      <motion.section ref={ref} className="py-20 px-6"
+      <motion.section ref={ref} className="py-20 px-6 dramatic-bg-2 particle-bg floating-elements relative overflow-hidden"
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 1 }}
       >
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto max-w-6xl relative z-10">
           <motion.div className="text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -142,11 +141,19 @@ const ZenParadise = () => {
             {amenities.map((amenity, index) => (
               <motion.div
                 key={amenity.title}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
-                whileHover={{ y: -5, scale: 1.02 }}
+                className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group card-dramatic-hover ${
+                  index % 2 === 0 ? 'staggered-reveal-dramatic-left' : 'staggered-reveal-dramatic-right'
+                }`}
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                transition={{ duration: 0.8, delay: 0.3 + index * 0.2 }}
+                onAnimationComplete={() => {
+                  const element = document.querySelector(`[data-amenity="${index}"]`);
+                  if (element) {
+                    element.classList.add('revealed');
+                  }
+                }}
+                data-amenity={index}
               >
                 <div className="relative overflow-hidden h-48">
                   <img
@@ -155,14 +162,17 @@ const ZenParadise = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg p-2">
+                  <motion.div 
+                    className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg p-3"
+                    transition={{ duration: 0.5, type: "spring", stiffness: 300 }}
+                  >
                     {amenity.icon}
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">{amenity.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-emerald-600 transition-colors duration-300">{amenity.title}</h3>
                   <p className="text-emerald-600 font-medium text-xl mb-2">{amenity.value}</p>
-                  <p className="text-gray-600 text-sm">{amenity.description}</p>
+                  <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-300 leading-relaxed">{amenity.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -187,7 +197,6 @@ const ZenParadise = () => {
                 <motion.div
                   key={index}
                   className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 group"
-                  whileHover={{ x: 5, scale: 1.02 }}
                   initial={{ opacity: 0, x: -20 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}

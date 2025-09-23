@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowRight, MapPin, Star, Zap, Droplets, Building, Camera, Users } from 'lucide-react';
+import { ArrowRight, MapPin, Star, Zap, Droplets, Building, Camera, Users, BookOpen, Video, Footprints } from 'lucide-react';
 
 const ShastaDam = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -18,25 +18,25 @@ const ShastaDam = () => {
   ];
 
   const features = [
-    { icon: '🏗️', title: 'Height', value: '602 feet' },
-    { icon: '📏', title: 'Length', value: '3,460 feet' },
-    { icon: '💧', title: 'Capacity', value: '4.55M acre-feet' },
-    { icon: '⚡', title: 'Power', value: '710 megawatts' },
-    { icon: '🌾', title: 'Irrigation', value: '3M acres' },
-    { icon: '📅', title: 'Built', value: '1938-1945' }
+    { icon: <Building className="w-8 h-8" />, title: 'Height', value: '602 feet' },
+    { icon: <Building className="w-8 h-8" />, title: 'Length', value: '3,460 feet' },
+    { icon: <Droplets className="w-8 h-8" />, title: 'Capacity', value: '4.55M acre-feet' },
+    { icon: <Zap className="w-8 h-8" />, title: 'Power', value: '710 megawatts' },
+    { icon: <Building className="w-8 h-8" />, title: 'Irrigation', value: '3M acres' },
+    { icon: <Building className="w-8 h-8" />, title: 'Built', value: '1938-1945' }
   ];
 
   const activities = [
-    { icon: '👥', title: 'Guided Tours', value: 'Free with Reservation' },
-    { icon: '🏛️', title: 'Visitor Center', value: 'Interactive Exhibits' },
-    { icon: '📸', title: 'Photography', value: 'Spectacular Views' },
-    { icon: '📚', title: 'Education', value: 'History & Engineering' },
-    { icon: '🎥', title: 'Videos', value: 'Educational Content' },
-    { icon: '🚶', title: 'Walking', value: 'Stairs & Ramps' }
+    { icon: <Users className="w-8 h-8" />, title: 'Guided Tours', value: 'Free with Reservation' },
+    { icon: <Building className="w-8 h-8" />, title: 'Visitor Center', value: 'Interactive Exhibits' },
+    { icon: <Camera className="w-8 h-8" />, title: 'Photography', value: 'Spectacular Views' },
+    { icon: <BookOpen className="w-8 h-8" />, title: 'Education', value: 'History & Engineering' },
+    { icon: <Video className="w-8 h-8" />, title: 'Videos', value: 'Educational Content' },
+    { icon: <Footprints className="w-8 h-8" />, title: 'Walking', value: 'Stairs & Ramps' }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+    <div className="min-h-screen dramatic-bg-2 particle-bg floating-elements relative overflow-hidden">
       {/* Hero Section */}
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -184,7 +184,7 @@ const ShastaDam = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4">📚</div>
+              <div className="text-4xl mb-4"><BookOpen className="w-12 h-12 text-emerald-600" /></div>
               <h3 className="text-2xl font-bold mb-4">Historical Significance</h3>
               <p className="text-white/90 leading-relaxed">
                 Shasta Dam was constructed between 1938 and 1945 as part of the Central Valley Project, a federal water management project designed to provide water for irrigation, hydroelectric power, and flood control in California's Central Valley. The dam stands at a height of 602 feet, making it the second tallest dam in the United States.
@@ -197,7 +197,7 @@ const ShastaDam = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="text-4xl mb-4">⚙️</div>
+              <div className="text-4xl mb-4"><Zap className="w-12 h-12 text-emerald-600" /></div>
               <h3 className="text-2xl font-bold mb-4">Engineering Excellence</h3>
               <p className="text-white/90 leading-relaxed">
                 The dam is a concrete gravity structure that spans 3,460 feet across the Sacramento River. It has a reservoir capacity of 4.55 million acre-feet, which can provide water for up to 3 million acres of farmland. The hydroelectric power plant at the dam can generate up to 710 megawatts of electricity, enough to power over 500,000 homes.
@@ -310,7 +310,7 @@ const ShastaDam = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="text-4xl mb-4 text-center">🎯</div>
+              <div className="text-4xl mb-4 text-center"><Star className="w-12 h-12 text-emerald-600" /></div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">What to Expect</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">

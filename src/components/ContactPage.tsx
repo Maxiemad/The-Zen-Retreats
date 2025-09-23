@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Mail, Phone, MapPin, Instagram, Clock, Send, User, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Clock, Send, User, MessageSquare, Calendar, Sparkles, Utensils, Users } from 'lucide-react';
 
 const ContactPage = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -66,7 +66,6 @@ This message was sent from The Zen Retreats contact form.
               initial={{ opacity: 0, y: 30, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              whileHover={{ scale: 1.05 }}
             >
               Contact Us
             </motion.h1>
@@ -304,12 +303,12 @@ This message was sent from The Zen Retreats contact form.
       </motion.section>
 
       {/* FAQ Section */}
-      <motion.section className="py-20 px-6 bg-gradient-to-r from-emerald-50 to-teal-50"
+      <motion.section className="py-20 px-6 dramatic-bg-2 particle-bg floating-elements relative overflow-hidden"
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 1 }}
       >
-        <div className="container mx-auto max-w-4xl">
+        <div className="container mx-auto max-w-4xl relative z-10">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
@@ -322,57 +321,54 @@ This message was sent from The Zen Retreats contact form.
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <motion.div
-              className="bg-white rounded-xl p-6 shadow-lg"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">How do I book a retreat?</h3>
-              <p className="text-gray-600">
-                Simply fill out the contact form above or email us directly at info@thezenretreats.com. 
-                We'll respond within 24 hours with availability and pricing information.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="bg-white rounded-xl p-6 shadow-lg"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">What's included in a retreat?</h3>
-              <p className="text-gray-600">
-                Our retreats include accommodation, meals, guided activities, and access to all facilities. 
-                Specific inclusions vary by retreat type and can be customized to your needs.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="bg-white rounded-xl p-6 shadow-lg"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">Do you accommodate dietary restrictions?</h3>
-              <p className="text-gray-600">
-                Yes! We can accommodate various dietary needs including vegetarian, vegan, gluten-free, 
-                and other specific requirements. Please mention this in your inquiry.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="bg-white rounded-xl p-6 shadow-lg"
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">What's the minimum group size?</h3>
-              <p className="text-gray-600">
-                We welcome groups of all sizes, from intimate gatherings of 2-4 people to larger groups 
-                of 20+. Our facilities can be configured to accommodate your specific group needs.
-              </p>
-            </motion.div>
+            {[
+              {
+                question: "How do I book a retreat?",
+                answer: "Simply fill out the contact form above or email us directly at info@thezenretreats.com. We'll respond within 24 hours with availability and pricing information.",
+                icon: <Calendar className="w-8 h-8" />
+              },
+              {
+                question: "What's included in a retreat?",
+                answer: "Our retreats include accommodation, meals, guided activities, and access to all facilities. Specific inclusions vary by retreat type and can be customized to your needs.",
+                icon: <Sparkles className="w-8 h-8" />
+              },
+              {
+                question: "Do you accommodate dietary restrictions?",
+                answer: "Yes! We can accommodate various dietary needs including vegetarian, vegan, gluten-free, and other specific requirements. Please mention this in your inquiry.",
+                icon: <Utensils className="w-8 h-8" />
+              },
+              {
+                question: "What's the minimum group size?",
+                answer: "We welcome groups of all sizes, from intimate gatherings of 2-4 people to larger groups of 20+. Our facilities can be configured to accommodate your specific group needs.",
+                icon: <Users className="w-8 h-8" />
+              }
+            ].map((faq, index) => (
+              <motion.div
+                key={faq.question}
+                className={`bg-white rounded-xl p-6 shadow-lg card-dramatic-hover ${
+                  index % 2 === 0 ? 'staggered-reveal-dramatic-left' : 'staggered-reveal-dramatic-right'
+                }`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.2 + index * 0.2 }}
+                onAnimationComplete={() => {
+                  const element = document.querySelector(`[data-faq="${index}"]`);
+                  if (element) {
+                    element.classList.add('revealed');
+                  }
+                }}
+                data-faq={index}
+              >
+                <motion.div 
+                  className="text-4xl mb-4"
+                  transition={{ duration: 0.5, type: "spring", stiffness: 300 }}
+                >
+                  {faq.icon}
+                </motion.div>
+                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-emerald-600 transition-colors duration-300">{faq.question}</h3>
+                <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 leading-relaxed">{faq.answer}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </motion.section>

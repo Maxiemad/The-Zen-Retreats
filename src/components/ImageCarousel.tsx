@@ -147,7 +147,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
         <button
           onClick={prevSlide}
           className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 text-white rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
-          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
           <ChevronLeft size={24} />
@@ -155,7 +154,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
         <button
           onClick={nextSlide}
           className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 text-white rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
-          whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >
           <ChevronRight size={24} />
@@ -173,7 +171,6 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
                 ? 'bg-white scale-125' 
                 : 'bg-white/50 hover:bg-white/75'
             }`}
-            whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
           />
         ))}

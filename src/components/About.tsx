@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Heart, Mountain, Waves, Sun } from 'lucide-react';
+import { Heart, Mountain, Waves, Sun, Users, Briefcase, Home, Utensils } from 'lucide-react';
 import ImageCarousel from './ImageCarousel';
 
 const About = () => {
@@ -123,11 +123,9 @@ const About = () => {
                   initial={{ opacity: 0, x: -20, scale: 0.9 }}
                   animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
                   transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-                  whileHover={{ x: 5, scale: 1.02 }}
                 >
                   <motion.div 
                     className="flex-shrink-0 w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center group-hover:bg-emerald-200 transition-colors duration-300"
-                    whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.5 }}
                   >
                     <feature.icon className="w-6 h-6 text-emerald-600" />
@@ -175,7 +173,7 @@ const About = () => {
 
         {/* What We Offer Section */}
         <motion.div
-          className="mt-20"
+          className="mt-20 dramatic-bg-2 particle-bg floating-elements rounded-3xl p-8 relative overflow-hidden"
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 1.5 }}
@@ -195,35 +193,52 @@ const About = () => {
               { 
                 title: 'Yoga Retreats', 
                 image: '/Yoga-Poses-For-Beginners-Wallpaper-for-Wall-710x488.jpg',
-                alt: 'Yoga poses for beginners'
+                alt: 'Yoga poses for beginners',
+                icon: <Sun className="w-8 h-8" />
               },
               { 
                 title: 'Meditation & Spiritual Retreats', 
                 image: '/HD-wallpaper-buddha-nature-lotus-relaxing-peace-meditation-thumbnail.jpg',
-                alt: 'Buddha meditation lotus'
+                alt: 'Buddha meditation lotus',
+                icon: <Heart className="w-8 h-8" />
               },
               { 
                 title: 'Corporate Off-sites', 
                 image: '/1.png',
-                alt: 'Corporate meeting'
+                alt: 'Corporate meeting',
+                icon: <Briefcase className="w-8 h-8" />
               },
               { 
                 title: 'Family Reunions', 
                 image: '/pexels-photo-5638612.jpeg',
-                alt: 'Family gathering'
+                alt: 'Family gathering',
+                icon: <Users className="w-8 h-8" />
               }
             ].map((item, index) => (
               <motion.div
                 key={item.title}
-                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                className={`bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-all duration-300 overflow-hidden group card-dramatic-hover ${
+                  index % 2 === 0 ? 'staggered-reveal-dramatic-left' : 'staggered-reveal-dramatic-right'
+                }`}
                 initial={{ opacity: 0, y: 30, scale: 0.9 }}
                 animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 1.8 + index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.05, rotateY: 5 }}
+                transition={{ duration: 0.8, delay: 1.8 + index * 0.3 }}
+                onAnimationComplete={() => {
+                  const element = document.querySelector(`[data-card="${index}"]`);
+                  if (element) {
+                    element.classList.add('revealed');
+                  }
+                }}
+                data-card={index}
               >
                 <motion.div 
+                  className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-emerald-100 to-teal-100 flex items-center justify-center text-3xl"
+                  transition={{ duration: 0.4, type: "spring", stiffness: 300 }}
+                >
+                  {item.icon}
+                </motion.div>
+                <motion.div 
                   className="w-24 h-24 mx-auto mb-6 rounded-lg overflow-hidden relative"
-                  whileHover={{ scale: 1.15, rotate: 5 }}
                   transition={{ duration: 0.4 }}
                 >
                   <img 
@@ -236,11 +251,13 @@ const About = () => {
                   />
                 </motion.div>
                 <motion.h3 
-                  className="font-semibold text-gray-800 group-hover:text-emerald-600 transition-colors duration-300"
-                  whileHover={{ scale: 1.05 }}
+                  className="text-xl font-bold text-gray-800 group-hover:text-emerald-600 transition-colors duration-300 mb-2"
                 >
                   {item.title}
                 </motion.h3>
+                <p className="text-sm text-gray-500 group-hover:text-gray-600 transition-colors duration-300">
+                  Perfect for groups and retreats
+                </p>
               </motion.div>
             ))}
           </div>

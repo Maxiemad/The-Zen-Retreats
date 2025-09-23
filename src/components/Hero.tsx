@@ -120,7 +120,6 @@ const Hero = () => {
               initial={{ opacity: 0, x: -50, scale: 0.8 }}
               animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              whileHover={{ scale: 1.05 }}
             >
               The{' '}
             </motion.span>
@@ -129,7 +128,6 @@ const Hero = () => {
               initial={{ opacity: 0, x: 50, scale: 0.8 }}
               animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-              whileHover={{ scale: 1.05 }}
             >
               Zen Retreats
             </motion.span>
@@ -212,7 +210,6 @@ const Hero = () => {
         onClick={scrollToNext}
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        whileHover={{ scale: 1.1 }}
       >
         <ChevronDown size={32} />
       </motion.button>
