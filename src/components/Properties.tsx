@@ -14,17 +14,16 @@ const Properties = () => {
       id: 1,
       name: 'The Zen Paradise',
       image: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
-      description: 'Our premium property with the most breathtaking views of Shasta Lake, offering a perfect blend of comfort, style, and nature\'s beauty. Designed for those who seek both relaxation and luxury in one unforgettable stay.',
+      description: 'Premium property with stunning Shasta Lake views and luxury amenities.',
       features: [
-        '3 spacious bedrooms & 2.5 luxurious bathrooms',
-        '2 large wrap-around decks with panoramic lake views',
-        'Master suite with fireplace, soaking tub & walk-in closet',
-        '65" TV with premium sound-bar for immersive entertainment',
-        'Fully equipped gourmet kitchen with modern appliances',
-        'Elegant formal dining room with lake views',
-        'Dimmable lighting in every room for perfect ambiance',
-        'Outdoor BBQ grill & hammock for lakeside relaxation',
-        'Sleeps 9 comfortably with plush bedding and premium linens'
+        '3 bedrooms & 2.5 bathrooms',
+        'Wrap-around decks',
+        'Master suite with fireplace',
+        '65" TV & sound system',
+        'Gourmet kitchen',
+        'Formal dining room',
+        'Outdoor BBQ & hammock',
+        'Sleeps 9'
       ],
       capacity: '9 guests',
       sqft: '2800 sq ft'
@@ -33,18 +32,16 @@ const Properties = () => {
       id: 2,
       name: 'The Zen Space',
       image: 'https://images.pexels.com/photos/1438834/pexels-photo-1438834.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
-      description: 'The group activity space centrally located between the two houses, designed specifically for retreat rentals. A place where guests gather, connect, and create unforgettable moments. Surrounded by nature, it\'s the heart of every stay.',
+      description: 'Group activity space perfect for retreats and gatherings.',
       features: [
         'Beautiful gazebo',
-        'Outdoor sitting area with fireplace',
-        'BBQ grill and entertainment area',
-        'Outdoor bathroom with hot water',
-        'Clear, unobstructed lake views',
+        'Outdoor fireplace',
+        'BBQ & entertainment space',
+        'Outdoor bathroom',
+        'Lake views',
         'Private hiking trail',
-        'Cozy string lighting for evening ambiance',
-        'Outdoor yoga & meditation zone',
-        'Lawn area for games & events',
-        'Shaded lounge corners for relaxing afternoons'
+        'String lighting',
+        'Outdoor yoga & meditation zone'
       ],
       capacity: 'Group activities',
       sqft: 'Outdoor space'
@@ -53,21 +50,37 @@ const Properties = () => {
       id: 3,
       name: 'The Zen House',
       image: 'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
-      description: 'A large house offering 2400 sq ft of living space and an additional 1000 sq ft of dedicated entertainment space. Perfect for family reunions, retreats, and group getaways. Designed for comfort, fun, and stunning lakefront moments.',
+      description: 'Large house with 2400 sq ft living plus 1000 sq ft entertainment space.',
       features: [
-        '2400 sq ft + 1000 sq ft entertainment space',
+        '2400 + 1000 sq ft',
         '3 bedrooms & 3.5 bathrooms',
-        '2 master suites with breathtaking lake views',
-        'Pool table & ping pong table',
-        'Projector with giant screen for movie nights',
-        'Sleeps 12 (max 9 adults)',
-        'Spacious wrap-around deck with outdoor seating',
-        'Fully equipped kitchen with modern appliances',
-        'Indoor fireplace for cozy evenings',
-        'Outdoor BBQ area with panoramic views'
+        '2 master suites',
+        'Pool & ping pong tables',
+        'Projector & giant screen',
+        'Sleeps 12',
+        'Wrap-around deck',
+        'Fireplace & BBQ'
       ],
       capacity: '12 guests',
       sqft: '3400 sq ft'
+    },
+    {
+      id: 4,
+      name: 'The Zen Haven',
+      image: 'https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      description: 'Family-friendly lakeside oasis with 4 bedrooms, entertainment-packed retreat just 2 minutes from the lake.',
+      features: [
+        '4 bedrooms & 3 bathrooms',
+        'Sleeps 12+ guests',
+        '900 sq ft deck with BBQ',
+        'Poker set & corn hole',
+        'Ping pong table',
+        'Gourmet kitchen',
+        'Elevator access available',
+        'Kid-friendly amenities'
+      ],
+      capacity: '12+ guests',
+      sqft: 'Family retreat space'
     }
   ];
 
@@ -90,7 +103,7 @@ const Properties = () => {
           </p>
         </motion.div>
 
-        <div className="space-y-16">
+        <div className="space-y-8">
           {properties.map((property, index) => (
             <PropertyCard
               key={property.id}

@@ -45,6 +45,7 @@ const Header = () => {
     { name: 'The Zen Paradise', href: '/zen-paradise' },
     { name: 'The Zen Space', href: '/zen-space' },
     { name: 'The Zen House', href: '/zen-house' },
+    { name: 'The Zen Haven', href: '/zen-haven' },
   ];
 
   const attractions = [

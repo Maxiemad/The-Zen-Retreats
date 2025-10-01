@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Dancing+Script:wght@400;500;600;700&display=swap');
 
 * {
   margin: 0;
@@ -21,6 +21,10 @@ body {
 
 .zen-font {
   font-family: 'Playfair Display', serif;
+}
+
+.cursive-font {
+  font-family: 'Dancing Script', cursive;
 }
 
 .custom-scrollbar {

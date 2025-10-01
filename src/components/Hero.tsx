@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, MapPin, Users, Star } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
+import TypewriterText from './TypewriterText';
 
 const Hero = () => {
   const [ref, inView] = useInView({
@@ -115,22 +116,26 @@ const Hero = () => {
           transition={{ duration: 1, ease: 'easeOut' }}
           className="mb-8"
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white zen-font mb-6 text-shadow">
-            <motion.span
-              initial={{ opacity: 0, x: -50, scale: 0.8 }}
-              animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white cursive-font mb-6 text-shadow">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+              className="flex flex-wrap justify-center items-center gap-2"
             >
-              The{' '}
-            </motion.span>
-            <motion.span
-              className="zen-text-gradient bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent"
-              initial={{ opacity: 0, x: 50, scale: 0.8 }}
-              animate={inView ? { opacity: 1, x: 0, scale: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-            >
-              Zen Retreats
-            </motion.span>
+              <TypewriterText
+                text="The "
+                speed={150}
+                delay={500}
+                className="text-white"
+              />
+              <TypewriterText
+                text="Zen Retreats"
+                speed={150}
+                delay={2000}
+                className="zen-text-gradient bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent"
+              />
+            </motion.div>
           </h1>
 
           <motion.p

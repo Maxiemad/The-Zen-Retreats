@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { MapPin, Clock, Star, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import AttractionCard from './AttractionCard';
 
 const LocalAttractions = () => {
   const navigate = useNavigate();
@@ -43,65 +44,135 @@ Thanks and Regards,
 
   const attractions = [
     {
+      id: 1,
       name: 'Lake Shasta Caverns',
       image: 'https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      description: 'Underground limestone caverns with guided tours.',
+      features: [
+        'Guided cave tours',
+        'Boat ride to caverns',
+        'Limestone formations',
+        'Family-friendly',
+        'Photography',
+        'Gift shop'
+      ],
       distance: '15 minutes',
       rating: 4.8,
-      description: 'Explore stunning underground limestone caverns with guided tours and boat rides.'
+      driveTime: 'Drive time'
     },
     {
+      id: 2,
       name: 'Mount Shasta',
       image: 'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      description: '14,179-foot volcanic peak with hiking and spiritual experiences.',
+      features: [
+        'Hiking trails',
+        'Spiritual retreats',
+        'Alpine lakes',
+        'Wildlife viewing',
+        'Photography',
+        'Year-round activities'
+      ],
       distance: '45 minutes',
       rating: 4.9,
-      description: 'Majestic volcanic peak offering hiking, climbing, and spiritual experiences.'
+      driveTime: 'Drive time'
     },
     {
+      id: 3,
       name: 'Lassen Volcanic National Park',
       image: 'https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      description: 'Volcanic landscape with geothermal features and lakes.',
+      features: [
+        'Geothermal features',
+        'Alpine lakes',
+        'Hiking trails',
+        'Wildlife viewing',
+        'Visitor center',
+        'Camping'
+      ],
       distance: '1.5 hours',
       rating: 4.7,
-      description: 'Unique volcanic landscape with geothermal features, lakes, and hiking trails.'
+      driveTime: 'Drive time'
     },
     {
+      id: 4,
       name: 'City of Redding',
       image: 'https://images.pexels.com/photos/1647976/pexels-photo-1647976.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      description: 'Modern city with shopping, dining, and cultural attractions.',
+      features: [
+        'Sundial Bridge',
+        'Turtle Bay Park',
+        'Shopping',
+        'Dining',
+        'Museums',
+        'Airport'
+      ],
       distance: '20 minutes',
       rating: 4.5,
-      description: 'Modern city with shopping, dining, and cultural attractions including Turtle Bay.'
+      driveTime: 'Drive time'
     },
     {
+      id: 5,
       name: 'The Burney Falls',
       image: 'https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      description: '129-foot waterfall - "Eighth Wonder of the World".',
+      features: [
+        '129-foot waterfall',
+        'Viewing platform',
+        'Swimming',
+        'Photography',
+        'Picnic areas',
+        'Hiking'
+      ],
       distance: '1 hour',
       rating: 4.8,
-      description: 'Spectacular 129-foot waterfall known as the "Eighth Wonder of the World".'
+      driveTime: 'Drive time'
     },
     {
+      id: 6,
       name: 'The McCloud Falls',
       image: 'https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      description: 'Three waterfalls along the McCloud River.',
+      features: [
+        'Three waterfalls',
+        'Hiking trails',
+        'Swimming',
+        'Photography',
+        'Picnic areas',
+        'Forest setting'
+      ],
       distance: '1 hour',
       rating: 4.6,
-      description: 'Three beautiful waterfalls along the McCloud River with swimming holes.'
+      driveTime: 'Drive time'
     },
     {
+      id: 7,
       name: 'Shasta Dam',
       image: 'https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      description: 'Second tallest dam in the US with guided tours.',
+      features: [
+        'Guided tours',
+        'Lake views',
+        'Educational exhibits',
+        'Photography',
+        'Visitor center',
+        'Hiking'
+      ],
       distance: '25 minutes',
       rating: 4.7,
-      description: 'Second tallest dam in the United States with guided tours and spectacular views.'
+      driveTime: 'Drive time'
     }
   ];
 
   return (
-    <section id="attractions" className="py-20 dramatic-bg-2 particle-bg floating-elements relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="attractions" className="py-20 bg-white">
+      <div className="container mx-auto px-6">
         <motion.div
           ref={ref}
           className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
             Local Attractions
@@ -112,83 +183,19 @@ Thanks and Regards,
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="space-y-8">
           {attractions.map((attraction, index) => (
-            <motion.div
-              key={attraction.name}
-              className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group card-dramatic-hover ${
-                index % 2 === 0 ? 'staggered-reveal-dramatic-left' : 'staggered-reveal-dramatic-right'
-              }`}
-              initial={{ opacity: 0, y: 20, scale: 0.9 }}
-              animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.2, ease: "easeOut" }}
-              onAnimationComplete={() => {
-                const element = document.querySelector(`[data-attraction="${index}"]`);
-                if (element) {
-                  element.classList.add('revealed');
-                }
-              }}
-              data-attraction={index}
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  src={attraction.image}
-                  alt={attraction.name}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-                <motion.div 
-                  className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 flex items-center space-x-1"
-                  transition={{ duration: 0.4, type: "spring", stiffness: 300 }}
-                >
-                  <Star className="w-5 h-5 text-yellow-500 fill-current" />
-                  <span className="text-sm font-bold text-gray-800">{attraction.rating}</span>
-                </motion.div>
-              </div>
-              
-              <div className="p-6">
-                <motion.h3 
-                  className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-emerald-600 transition-colors duration-300"
-                >
-                  {attraction.name}
-                </motion.h3>
-                <p className="text-gray-600 mb-4 text-sm group-hover:text-gray-700 transition-colors duration-300 leading-relaxed">{attraction.description}</p>
-                
-                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                  <motion.div 
-                    className="flex items-center space-x-1 group-hover:text-emerald-600 transition-colors duration-300"
-                    whileHover={{ x: 2 }}
-                  >
-                    <MapPin className="w-4 h-4" />
-                    <span>{attraction.distance}</span>
-                  </motion.div>
-                  <motion.div 
-                    className="flex items-center space-x-1 group-hover:text-emerald-600 transition-colors duration-300"
-                    whileHover={{ x: 2 }}
-                  >
-                    <Clock className="w-4 h-4" />
-                    <span>Drive time</span>
-                  </motion.div>
-                </div>
-                
-                <motion.button
-                  onClick={() => handleAttractionClick(attraction.name)}
-                  className="w-full flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold py-2 px-4 rounded-lg hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 group"
-                  whileHover={{ scale: 1.02, y: -1 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span>Explore Details</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </motion.button>
-              </div>
-            </motion.div>
+            <AttractionCard
+              key={attraction.id}
+              attraction={attraction}
+              index={index}
+              inView={inView}
+            />
           ))}
         </div>
 
         <motion.div
-          className="text-center mt-12"
+          className="text-center mt-16"
           initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}

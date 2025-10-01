@@ -127,7 +127,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       onTouchEnd={onTouchEnd}
     >
       {/* Image Container */}
-      <div className="relative h-[600px] w-full">
+      <div className="relative h-[400px] w-full">
         <div className="absolute inset-0">
           <img
             src={images[activeIndex].src}
@@ -138,35 +138,35 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
         </div>
 
         {/* Text Overlay */}
-        <div className="absolute bottom-8 left-8 right-8 text-white">
-          <h3 className="text-2xl font-bold zen-font mb-2">{images[activeIndex].title}</h3>
-          <p className="text-white/90">{images[activeIndex].subtitle}</p>
+        <div className="absolute bottom-6 left-6 right-6 text-white">
+          <h3 className="text-xl font-bold zen-font mb-1">{images[activeIndex].title}</h3>
+          <p className="text-white/90 text-sm">{images[activeIndex].subtitle}</p>
         </div>
 
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 text-white rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
+          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 hover:bg-black/50 text-white rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
           whileTap={{ scale: 0.9 }}
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={20} />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/30 hover:bg-black/50 text-white rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
+          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 hover:bg-black/50 text-white rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-sm"
           whileTap={{ scale: 0.9 }}
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={20} />
         </button>
       </div>
 
       {/* Dots Navigation */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+      <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1.5">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
               index === activeIndex 
                 ? 'bg-white scale-125' 
                 : 'bg-white/50 hover:bg-white/75'
@@ -177,7 +177,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
       </div>
 
               {/* Image Counter */}
-        <div className="absolute top-4 right-4 bg-black/30 text-white px-3 py-1 rounded-full text-sm backdrop-blur-sm">
+        <div className="absolute top-3 right-3 bg-black/30 text-white px-2 py-1 rounded-full text-xs backdrop-blur-sm">
           {activeIndex + 1} / {images.length}
         </div>
     </div>

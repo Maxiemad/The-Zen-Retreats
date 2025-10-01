@@ -16,6 +16,7 @@ import LoadingScreen from './components/LoadingScreen';
 import ZenParadise from './components/ZenParadise';
 import ZenSpace from './components/ZenSpace';
 import ZenHouse from './components/ZenHouse';
+import ZenHaven from './components/ZenHaven';
 
 // Attraction Pages
 import LakeShastaCaverns from './components/LakeShastaCaverns';
@@ -123,6 +124,7 @@ function App() {
               <Route path="/zen-paradise" element={<PropertyPage><ZenParadise /></PropertyPage>} />
               <Route path="/zen-space" element={<PropertyPage><ZenSpace /></PropertyPage>} />
               <Route path="/zen-house" element={<PropertyPage><ZenHouse /></PropertyPage>} />
+              <Route path="/zen-haven" element={<PropertyPage><ZenHaven /></PropertyPage>} />
               
               {/* Attraction Pages */}
               <Route path="/lake-shasta-caverns" element={<AttractionPage><LakeShastaCaverns /></AttractionPage>} />

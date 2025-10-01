@@ -26,6 +26,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, index, inView }) 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [zenSpaceImageIndex, setZenSpaceImageIndex] = useState(0);
   const [zenHouseImageIndex, setZenHouseImageIndex] = useState(0);
+  const [zenHavenImageIndex, setZenHavenImageIndex] = useState(0);
 
   // Carousel images for The Zen Paradise
   const zenParadiseImages = [
@@ -129,6 +130,40 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, index, inView }) 
     }
   ];
 
+  // Carousel images for The Zen Haven
+  const zenHavenImages = [
+    {
+      src: '/himg1.png',
+      title: 'The Zen Haven',
+      subtitle: 'Family-friendly lakeside oasis'
+    },
+    {
+      src: '/himg2.png',
+      title: '4 Bedrooms',
+      subtitle: 'Sleeps 12+ guests comfortably'
+    },
+    {
+      src: '/himg3.png',
+      title: '900 sq ft Deck',
+      subtitle: 'With BBQ and stunning lake views'
+    },
+    {
+      src: '/himg4.png',
+      title: 'Entertainment Area',
+      subtitle: 'Poker set, corn hole & ping pong'
+    },
+    {
+      src: '/himg5.png',
+      title: 'Gourmet Kitchen',
+      subtitle: 'Fully equipped for family meals'
+    },
+    {
+      src: '/himg1.png',
+      title: 'Kid-Friendly',
+      subtitle: 'Dedicated kids room & amenities'
+    }
+  ];
+
   const handleReachOut = () => {
     const subject = encodeURIComponent(`Inquiry About ${property.name} - The Zen Retreats`);
     const body = encodeURIComponent(`Hello Team Zen Retreats,
@@ -147,7 +182,8 @@ Thanks and Regards,
     const routeMap: { [key: string]: string } = {
       'The Zen Paradise': '/zen-paradise',
       'The Zen Space': '/zen-space',
-      'The Zen House': '/zen-house'
+      'The Zen House': '/zen-house',
+      'The Zen Haven': '/zen-haven'
     };
     
     const route = routeMap[property.name];
@@ -201,12 +237,23 @@ Thanks and Regards,
               setZenHouseImageIndex(index);
             }}
           />
+        ) : property.name === 'The Zen Haven' ? (
+          <ImageCarousel
+            images={zenHavenImages}
+            autoSlideInterval={3500}
+            currentIndex={zenHavenImageIndex}
+            onIndexChange={setZenHavenImageIndex}
+            onImageChange={(index) => {
+              console.log('Zen Haven image index:', index);
+              setZenHavenImageIndex(index);
+            }}
+          />
         ) : (
           <div className="relative overflow-hidden rounded-2xl shadow-2xl">
             <img
               src={property.image}
               alt={property.name}
-              className="w-full h-[400px] object-cover"
+              className="w-full h-[300px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             
