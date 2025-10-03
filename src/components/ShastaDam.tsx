@@ -369,6 +369,66 @@ const ShastaDam = () => {
           </motion.button>
         </div>
       </motion.section>
+
+      {/* Image Gallery Section 1 */}
+      <motion.section className="py-20 bg-gray-50"
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 0.6 }}
+      >
+        <div className="container mx-auto px-6">
+          <motion.div className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Dam Gallery</h3>
+            <p className="text-lg text-gray-600">Discover the engineering marvel of Shasta Dam</p>
+          </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {['/himg1.png', '/himg2.png', '/himg3.png', '/himg4.png'].map((image, imgIndex) => (
+              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.6, delay: 1.0 + imgIndex * 0.1 }}
+              >
+                <img
+                  src={image}
+                  alt={`Shasta Dam ${imgIndex + 1}`}
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Image Gallery Section 2 */}
+      <motion.section className="py-20 bg-white"
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 1.2 }}
+      >
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {['/himg5.png', '/himg1.png', '/himg2.png'].map((image, imgIndex) => (
+              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 1.4 + imgIndex * 0.1 }}
+              >
+                <img
+                  src={image}
+                  alt={`Shasta Dam ${imgIndex + 5}`}
+                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
     </div>
   );
 };
