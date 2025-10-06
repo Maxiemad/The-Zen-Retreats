@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowRight, MapPin, Users, Star, Home, Wifi, Car, Utensils, Gamepad2, Baby, Accessibility, Shield, Clock, Phone } from 'lucide-react';
+import { ArrowRight, MapPin, Users, Star, Home, Wifi, Car, Utensils, Gamepad2, Baby, Accessibility, Shield, Clock, Phone, Bed, PartyPopper, ShoppingBag, TreePine, Building, ParkingCircle, ArrowUpDown } from 'lucide-react';
 
 const ZenHaven = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -64,13 +64,13 @@ const ZenHaven = () => {
   ];
 
   const accessibleAreas = [
-    '🏡 The Main House – All bedrooms, bathrooms, kitchen, dining areas, and cozy lounges.',
-    '🧘‍♀️ Indoor & Outdoor Gathering Spaces – Perfect for group activities, workshops, yoga, or quiet reflection.',
-    '🌅 900 sq. ft. Deck – With comfortable seating, a large dining table, and BBQ grill—all overlooking stunning lake and hill views.',
-    '🎉 Entertainment Areas – Including the pool table, ping pong table, poker set, corn hole, and 65" smart TV.',
-    '🧸 Kids\' Room & Play Area – Ideal for family-friendly retreats.',
-    '🚗 Ample Parking – Space for cars, boats, and trailers, plus a boat garage.',
-    '🛗 Elevator Access – Available upon request for guests with mobility needs (note: not for children).'
+    'The Main House – All bedrooms, bathrooms, kitchen, dining areas, and cozy lounges.',
+    'Indoor & Outdoor Gathering Spaces – Perfect for group activities, workshops, yoga, or quiet reflection.',
+    '900 sq. ft. Deck – With comfortable seating, a large dining table, and BBQ grill—all overlooking stunning lake and hill views.',
+    'Entertainment Areas – Including the pool table, ping pong table, poker set, corn hole, and 65" smart TV.',
+    'Kids\' Room & Play Area – Ideal for family-friendly retreats.',
+    'Ample Parking – Space for cars, boats, and trailers, plus a boat garage.',
+    'Elevator Access – Available upon request for guests with mobility needs (note: not for children).'
   ];
 
   return (
@@ -112,6 +112,7 @@ const ZenHaven = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
+            onClick={() => window.open('https://www.gotoretreats.com/l/the-zen-haven-family-friendly-lakeside-oasis/681e960b-0681-4efa-8c53-41aefd092507', '_blank')}
           >
             <span>Book Now</span>
             <ArrowRight size={20} />
@@ -186,7 +187,7 @@ const ZenHaven = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h3 className="text-3xl font-bold text-gray-800 zen-font mb-8 text-center">🛏️ Sleeping Arrangements</h3>
+            <h3 className="text-3xl font-bold text-gray-800 zen-font mb-8 text-center flex items-center justify-center gap-3"><Bed className="w-8 h-8 text-emerald-600" /> Sleeping Arrangements</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {sleepingArrangements.map((room, index) => (
                 <motion.div key={index} className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-6 shadow-lg"
@@ -208,7 +209,7 @@ const ZenHaven = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <h3 className="text-3xl font-bold text-gray-800 zen-font mb-8">🎉 For Fun</h3>
+              <h3 className="text-3xl font-bold text-gray-800 zen-font mb-8 flex items-center gap-3"><PartyPopper className="w-8 h-8 text-emerald-600" /> For Fun</h3>
               <div className="space-y-4">
                 {funActivities.map((activity, index) => (
                   <motion.div key={index} className="flex items-center space-x-4 bg-white rounded-lg p-4 shadow-md"
@@ -231,7 +232,7 @@ const ZenHaven = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <h3 className="text-3xl font-bold text-gray-800 zen-font mb-8">🧺 Essentials</h3>
+              <h3 className="text-3xl font-bold text-gray-800 zen-font mb-8 flex items-center gap-3"><ShoppingBag className="w-8 h-8 text-emerald-600" /> Essentials</h3>
               <div className="space-y-4">
                 {essentials.map((item, index) => (
                   <motion.div key={index} className="flex items-center space-x-4 bg-white rounded-lg p-4 shadow-md"
@@ -249,6 +250,115 @@ const ZenHaven = () => {
               </div>
             </motion.div>
           </div>
+
+          {/* New Image Gallery Section */}
+          <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 1.0 }}
+          >
+            <div className="container mx-auto px-6">
+              <motion.div className="text-center mb-12"
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 1.2 }}
+              >
+                <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Haven Highlights</h3>
+                <p className="text-lg text-gray-600">Discover the beautiful spaces and amenities of The Zen Haven</p>
+              </motion.div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
+                  <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 1.4 + imgIndex * 0.1 }}
+                  >
+                    <img
+                      src={image}
+                      alt={`Haven Highlights ${imgIndex + 1}`}
+                      className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <h4 className="font-semibold text-sm">Lakeside Living</h4>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.section>
+
+          {/* Additional Features Section */}
+          <motion.div className="mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 1.2 }}
+          >
+            <h3 className="text-3xl font-bold text-gray-800 zen-font mb-8 text-center flex items-center justify-center gap-3"><Home className="w-8 h-8 text-emerald-600" /> Additional Features</h3>
+            <div className="grid md:grid-cols-2 gap-8">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.8, delay: 1.4 }}
+              >
+                <h4 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3"><Gamepad2 className="w-6 h-6 text-purple-600" /> Entertainment Hub</h4>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4 bg-white rounded-lg p-4 shadow-md">
+                    <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                    <div>
+                      <p className="font-semibold text-gray-800">Pool Table</p>
+                      <p className="text-gray-600 text-sm">(Main living area)</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4 bg-white rounded-lg p-4 shadow-md">
+                    <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                    <div>
+                      <p className="font-semibold text-gray-800">65" Smart TV</p>
+                      <p className="text-gray-600 text-sm">(Entertainment center)</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4 bg-white rounded-lg p-4 shadow-md">
+                    <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                    <div>
+                      <p className="font-semibold text-gray-800">Sound System</p>
+                      <p className="text-gray-600 text-sm">(Throughout house)</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.8, delay: 1.6 }}
+              >
+                <h4 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3"><TreePine className="w-6 h-6 text-green-600" /> Outdoor Living</h4>
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4 bg-white rounded-lg p-4 shadow-md">
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <div>
+                      <p className="font-semibold text-gray-800">900 sq. ft. Deck</p>
+                      <p className="text-gray-600 text-sm">(With lake views)</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4 bg-white rounded-lg p-4 shadow-md">
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <div>
+                      <p className="font-semibold text-gray-800">BBQ Grill</p>
+                      <p className="text-gray-600 text-sm">(Gas powered)</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-4 bg-white rounded-lg p-4 shadow-md">
+                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <div>
+                      <p className="font-semibold text-gray-800">Outdoor Dining</p>
+                      <p className="text-gray-600 text-sm">(Seats 12+)</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
 
           {/* Amenities */}
           <motion.div className="mb-16"
@@ -303,16 +413,22 @@ const ZenHaven = () => {
             <div className="bg-white rounded-xl p-8 shadow-lg">
               <p className="text-gray-600 mb-6">Retreat guests will have full, private access to the entire property, including:</p>
               <div className="space-y-4">
-                {accessibleAreas.map((area, index) => (
-                  <motion.div key={index} className="flex items-start space-x-4"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 2.0 + index * 0.1 }}
-                  >
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-600">{area}</p>
-                  </motion.div>
-                ))}
+                {accessibleAreas.map((area, index) => {
+                  const getIcon = (index: number) => {
+                    const icons = [<Home className="w-5 h-5 text-emerald-600" />, <Users className="w-5 h-5 text-emerald-600" />, <TreePine className="w-5 h-5 text-emerald-600" />, <Gamepad2 className="w-5 h-5 text-emerald-600" />, <Baby className="w-5 h-5 text-emerald-600" />, <ParkingCircle className="w-5 h-5 text-emerald-600" />, <ArrowUpDown className="w-5 h-5 text-emerald-600" />];
+                    return icons[index] || <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0"></div>;
+                  };
+                  return (
+                    <motion.div key={index} className="flex items-start space-x-4"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.6, delay: 2.0 + index * 0.1 }}
+                    >
+                      <div className="mt-1 flex-shrink-0">{getIcon(index)}</div>
+                      <p className="text-gray-600">{area}</p>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
@@ -324,7 +440,7 @@ const ZenHaven = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 2.2 }}
             >
-              <h3 className="text-3xl font-bold text-gray-800 zen-font mb-8">🏡 House Rules</h3>
+              <h3 className="text-3xl font-bold text-gray-800 zen-font mb-8 flex items-center gap-3"><Building className="w-8 h-8 text-emerald-600" /> House Rules</h3>
               <div className="bg-white rounded-xl p-6 shadow-lg">
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3">

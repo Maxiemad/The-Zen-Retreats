@@ -103,6 +103,7 @@ const ZenHouse = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
+            onClick={() => window.open('https://www.gotoretreats.com/l/entire-home-in-shasta-county-california-united-states/6631c108-f6ec-44bd-92f3-c0cecb484531', '_blank')}
           >
             <span>Book Now</span>
             <ArrowRight size={20} />
@@ -226,7 +227,7 @@ const ZenHouse = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4">🎮</div>
+              <div className="text-4xl mb-4"><Gamepad2 className="w-12 h-12 text-emerald-600 mx-auto" /></div>
               <h3 className="text-2xl font-bold mb-4">Entertainment Space</h3>
               <p className="text-white/90 leading-relaxed">
                 The large entertainment room features a pool table, ping pong table, and a projector with giant screen for movie nights. Perfect for family fun and group activities.

@@ -164,18 +164,18 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, index, inView }) 
     }
   ];
 
-  const handleReachOut = () => {
-    const subject = encodeURIComponent(`Inquiry About ${property.name} - The Zen Retreats`);
-    const body = encodeURIComponent(`Hello Team Zen Retreats,
-
-I visited your website and I'm interested in learning more about ${property.name}.
-I would like to know more about the property details, availability, pricing, and booking process.
-Please share any additional information, photos, or brochures that could help me make a decision.
-
-Thanks and Regards,
-[Your Name]`);
+  const handleBookNow = () => {
+    const bookingUrls: { [key: string]: string } = {
+      'The Zen Paradise': 'https://www.gotoretreats.com/l/entire-villa-in-shasta-county-california-united-states/66305151-798d-40a1-971f-a6c5b75da920',
+      'The Zen House': 'https://www.gotoretreats.com/l/entire-home-in-shasta-county-california-united-states/6631c108-f6ec-44bd-92f3-c0cecb484531',
+      'The Zen Space': 'https://www.gotoretreats.com/l/mt-shasta-retreat-venue-with-premium-views-of-shasta-lake/65ebfa9d-a3d7-41b2-81c1-2201c222a56f',
+      'The Zen Haven': 'https://www.gotoretreats.com/l/the-zen-haven-family-friendly-lakeside-oasis/681e960b-0681-4efa-8c53-41aefd092507'
+    };
     
-    window.location.href = `mailto:info@thezenretreats.com?subject=${subject}&body=${body}`;
+    const bookingUrl = bookingUrls[property.name];
+    if (bookingUrl) {
+      window.open(bookingUrl, '_blank');
+    }
   };
 
   const handleViewDetails = () => {
@@ -344,14 +344,15 @@ Thanks and Regards,
           </motion.button>
           
           <motion.button
-            onClick={handleReachOut}
-            className="flex items-center justify-center space-x-2 text-emerald-600 font-semibold hover:text-emerald-700 transition-colors group border-2 border-emerald-500 hover:bg-emerald-50 py-3 px-6 rounded-lg"
+            onClick={handleBookNow}
+            className="flex items-center justify-center space-x-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 group py-3 px-6 rounded-lg shadow-lg hover:shadow-xl"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.95 + index * 0.1 }}
-            whileHover={{ x: 2 }}
+            whileHover={{ scale: 1.02, y: -1 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <span>Reach Out</span>
+            <span>Book Now</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </motion.button>
         </div>

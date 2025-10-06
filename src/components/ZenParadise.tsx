@@ -102,6 +102,7 @@ const ZenParadise = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
+            onClick={() => window.open('https://www.gotoretreats.com/l/entire-villa-in-shasta-county-california-united-states/66305151-798d-40a1-971f-a6c5b75da920', '_blank')}
           >
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-teal-400 opacity-0 group-hover:opacity-20 transition-opacity duration-300"

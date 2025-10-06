@@ -186,6 +186,43 @@ const MountShasta = () => {
         </div>
       </motion.section>
 
+      {/* New Image Gallery Section */}
+      <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        <div className="container mx-auto px-6">
+          <motion.div className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Mountain Majesty</h3>
+            <p className="text-lg text-gray-600">Witness the grandeur of Mount Shasta</p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
+              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.8 + imgIndex * 0.1 }}
+              >
+                <img
+                  src={image}
+                  alt={`Mountain Majesty ${imgIndex + 1}`}
+                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h4 className="font-semibold text-sm">Alpine Beauty</h4>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
       {/* Image Gallery Section 1 */}
       <motion.section className="py-20 bg-gray-50"
         initial={{ opacity: 0, y: 50 }}
@@ -240,6 +277,43 @@ const MountShasta = () => {
                   className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Additional Image Gallery Section */}
+      <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 1.6 }}
+      >
+        <div className="container mx-auto px-6">
+          <motion.div className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 1.8 }}
+          >
+            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Alpine Adventures</h3>
+            <p className="text-lg text-gray-600">Explore the majestic beauty of Mount Shasta</p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
+              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 2.0 + imgIndex * 0.1 }}
+              >
+                <img
+                  src={image}
+                  alt={`Alpine Adventures ${imgIndex + 1}`}
+                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h4 className="font-semibold text-sm">Mountain Views</h4>
+                </div>
               </motion.div>
             ))}
           </div>

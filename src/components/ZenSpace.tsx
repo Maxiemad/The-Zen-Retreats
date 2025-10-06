@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ArrowRight, Tent, Users, Eye, Tent as Yurt, Flame, Bath } from 'lucide-react';
+import { ArrowRight, Tent, Users, Eye, Tent as Yurt, Flame, Bath, Sunrise } from 'lucide-react';
 
 const ZenSpace = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -103,6 +103,7 @@ const ZenSpace = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
+            onClick={() => window.open('https://www.gotoretreats.com/l/mt-shasta-retreat-venue-with-premium-views-of-shasta-lake/65ebfa9d-a3d7-41b2-81c1-2201c222a56f', '_blank')}
           >
             <span>Book Now</span>
             <ArrowRight size={20} />
@@ -226,7 +227,7 @@ const ZenSpace = () => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4">🌅</div>
+              <div className="text-4xl mb-4"><Sunrise className="w-12 h-12 text-emerald-600 mx-auto" /></div>
               <h3 className="text-2xl font-bold mb-4">Breathtaking Views</h3>
               <p className="text-white/90 leading-relaxed">
                 The hallmark of our property are the breathtaking views that can be enjoyed from pretty much everywhere, including inside the Yurt. Clear, unobstructed views of the lake and surrounding hills create the perfect backdrop for any activity.
