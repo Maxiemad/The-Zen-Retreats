@@ -102,7 +102,7 @@ const LassenVolcanic = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
               A Volcanic Wonderland
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed">
               Lassen Volcanic National Park, located in Northern California, is a captivating natural wonder that showcases the stunning beauty of volcanic landscapes. This unique national park, established in 1916, covers an area of over 100,000 acres and offers visitors a diverse range of experiences.
             </p>
           </motion.div>
@@ -177,7 +177,7 @@ const LassenVolcanic = () => {
         transition={{ duration: 1 }}
       >
         <div className="container mx-auto max-w-4xl text-center">
-          <motion.h2 className="text-4xl md:text-5xl font-bold text-white zen-font mb-6"
+          <motion.h2 className="text-4xl md:text-5xl font-bold text-black zen-font mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}

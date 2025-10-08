@@ -91,7 +91,7 @@ Thanks and Regards,
     {
       id: 4,
       name: 'City of Redding',
-      image: 'https://images.pexels.com/photos/1647976/pexels-photo-1647976.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      image: '/cor1.png',
       description: 'Modern city with shopping, dining, and cultural attractions.',
       features: [
         'Sundial Bridge',
@@ -106,7 +106,7 @@ Thanks and Regards,
     {
       id: 5,
       name: 'The Burney Falls',
-      image: 'https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      image: '/bf1.png',
       description: '129-foot waterfall - "Eighth Wonder of the World".',
       features: [
         '129-foot waterfall',
@@ -121,7 +121,7 @@ Thanks and Regards,
     {
       id: 6,
       name: 'The McCloud Falls',
-      image: 'https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      image: '/mcf1.png',
       description: 'Three waterfalls along the McCloud River.',
       features: [
         'Three waterfalls',
@@ -136,7 +136,7 @@ Thanks and Regards,
     {
       id: 7,
       name: 'Shasta Dam',
-      image: 'https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      image: '/sd1.png',
       description: 'Second tallest dam in the US with guided tours.',
       features: [
         'Guided tours',

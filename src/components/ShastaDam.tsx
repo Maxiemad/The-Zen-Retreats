@@ -41,7 +41,7 @@ const ShastaDam = () => {
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/pexels-photo-5638612.jpeg"
+            src="/sd1.png"
             alt="Shasta Dam"
             className="w-full h-full object-cover"
           />
@@ -111,7 +111,7 @@ const ShastaDam = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
               An Engineering Marvel
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed">
               Shasta Dam, located on the Sacramento River in Northern California, is a marvel of engineering that has been providing water for irrigation, hydroelectric power generation, and flood control for over 75 years. This impressive structure stands as a testament to human ingenuity and continues to shape California's agricultural landscape.
             </p>
           </motion.div>
@@ -161,6 +161,7 @@ const ShastaDam = () => {
         </div>
       </motion.section>
 
+
       {/* History Section */}
       <motion.section className="py-20 px-6 bg-gradient-to-r from-emerald-50 to-teal-50"
         initial={{ opacity: 0 }}
@@ -208,6 +209,35 @@ const ShastaDam = () => {
         </div>
       </motion.section>
 
+      {/* Shasta Dam Gallery Row */}
+      <motion.section className="py-20 px-6 bg-gradient-to-r from-emerald-50 to-teal-50"
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 0.6 }}
+      >
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-center">
+            {['/sd4.png', '/sd5.png', '/sd6.png'].map((image, imgIndex) => (
+              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.6, delay: 0.8 + imgIndex * 0.1 }}
+              >
+                <img
+                  src={image}
+                  alt={`Shasta Dam ${imgIndex + 4}`}
+                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h4 className="font-semibold text-sm">Shasta Dam</h4>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
       {/* Tourism Section */}
       <motion.section className="py-20 px-6"
         initial={{ opacity: 0 }}
@@ -246,95 +276,9 @@ const ShastaDam = () => {
             ))}
           </motion.div>
 
-          <motion.div className="bg-white rounded-2xl p-8 shadow-lg"
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Visitor Center Experience</h3>
-            <p className="text-lg text-gray-700 leading-relaxed text-center max-w-4xl mx-auto">
-              Shasta Dam is not only an important piece of California's water management system, but it is also a popular tourist destination. Visitors can take guided tours of the dam and learn about its history and engineering. The visitor center offers interactive exhibits, videos, and displays that showcase the dam's role in shaping California's agricultural landscape.
-            </p>
-          </motion.div>
         </div>
       </motion.section>
 
-      {/* Tips Section */}
-      <motion.section className="py-20 px-6 bg-gradient-to-r from-emerald-50 to-teal-50"
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 1 }}
-      >
-        <div className="container mx-auto max-w-6xl">
-          <motion.div className="text-center mb-16"
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
-              Visitor Tips & Information
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div
-              className="bg-white rounded-2xl p-8 shadow-lg"
-              initial={{ opacity: 0, x: -50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="text-4xl mb-4 text-center">📋</div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">Planning Your Visit</h3>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">Tours are free, but advance reservations are required</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">Limited number of visitors per tour - book early</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">Wear comfortable shoes for walking stairs and ramps</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">Don't forget your camera for spectacular views</p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="bg-white rounded-2xl p-8 shadow-lg"
-              initial={{ opacity: 0, x: 50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <div className="text-4xl mb-4 text-center"><Star className="w-12 h-12 text-emerald-600" /></div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">What to Expect</h3>
-              <div className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">Educational guided tours with knowledgeable staff</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">Interactive exhibits showcasing dam's engineering</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">Breathtaking views from the top of the dam</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">Learn about California's water management system</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
 
       {/* CTA Section */}
       <motion.section className="py-20 px-6 bg-gradient-to-r from-emerald-500 to-teal-500"
@@ -343,7 +287,7 @@ const ShastaDam = () => {
         transition={{ duration: 1 }}
       >
         <div className="container mx-auto max-w-4xl text-center">
-          <motion.h2 className="text-4xl md:text-5xl font-bold text-white zen-font mb-6"
+          <motion.h2 className="text-4xl md:text-5xl font-bold text-black zen-font mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -372,7 +316,7 @@ const ShastaDam = () => {
         </div>
       </motion.section>
 
-      {/* New Image Gallery Section */}
+      {/* Shasta Dam Gallery Section */}
       <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
         initial={{ opacity: 0, y: 50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -384,117 +328,20 @@ const ShastaDam = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Engineering Marvel</h3>
-            <p className="text-lg text-gray-600">Witness the impressive Shasta Dam</p>
+            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Shasta Dam Gallery</h3>
+            <p className="text-lg text-gray-600">Witness the impressive engineering marvel of Shasta Dam</p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Engineering Marvel ${imgIndex + 1}`}
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="font-semibold text-sm">Dam Views</h4>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Image Gallery Section 1 */}
-      <motion.section className="py-20 bg-gray-50"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.6 }}
-      >
-        <div className="container mx-auto px-6">
-          <motion.div className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Dam Gallery</h3>
-            <p className="text-lg text-gray-600">Discover the engineering marvel of Shasta Dam</p>
-          </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['/himg1.png', '/himg2.png', '/himg3.png', '/himg4.png'].map((image, imgIndex) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {['/sd1.png', '/sd2.png', '/sd3.png', '/sd7.png', '/sd8.png', '/sd9.png'].map((image, imgIndex) => (
               <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 1.0 + imgIndex * 0.1 }}
+                transition={{ duration: 0.6, delay: 0.8 + imgIndex * 0.1 }}
               >
                 <img
                   src={image}
                   alt={`Shasta Dam ${imgIndex + 1}`}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Image Gallery Section 2 */}
-      <motion.section className="py-20 bg-white"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 1.2 }}
-      >
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {['/himg5.png', '/himg1.png', '/himg2.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1.4 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Shasta Dam ${imgIndex + 5}`}
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Additional Image Gallery Section */}
-      <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 1.6 }}
-      >
-        <div className="container mx-auto px-6">
-          <motion.div className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1.8 }}
-          >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Dam Perspectives</h3>
-            <p className="text-lg text-gray-600">Explore different views and angles of the impressive Shasta Dam</p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 2.0 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Dam Perspectives ${imgIndex + 1}`}
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -505,6 +352,7 @@ const ShastaDam = () => {
           </div>
         </div>
       </motion.section>
+
     </div>
   );
 };

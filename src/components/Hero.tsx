@@ -127,13 +127,13 @@ const Hero = () => {
                 text="The "
                 speed={150}
                 delay={500}
-                className="zen-text-gradient bg-gradient-to-r from-emerald-500 to-emerald-600 bg-clip-text text-transparent font-bold"
+                className="font-bold sky-green-text"
               />
               <TypewriterText
                 text="Zen Retreats"
                 speed={150}
                 delay={2000}
-                className="zen-text-gradient bg-gradient-to-r from-emerald-500 to-emerald-600 bg-clip-text text-transparent font-bold"
+                className="font-bold sky-green-text"
               />
             </motion.div>
           </h1>

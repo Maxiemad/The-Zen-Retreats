@@ -41,7 +41,7 @@ const McCloudFalls = () => {
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/Yoga-Poses-For-Beginners-Wallpaper-for-Wall-710x488.jpg"
+            src="/mcf1.png"
             alt="McCloud Falls"
             className="w-full h-full object-cover"
           />
@@ -111,7 +111,7 @@ const McCloudFalls = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
               A Hidden Treasure in Northern California
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed">
               McCloud Falls, a hidden gem nestled in the beautiful wilderness of Northern California, is a breathtaking natural wonder that captivates visitors with its cascading waterfalls and stunning surroundings. Located near the town of McCloud in Siskiyou County, this trio of waterfalls along the McCloud River offers a serene escape and an opportunity to immerse oneself in the beauty of nature.
             </p>
           </motion.div>
@@ -178,48 +178,73 @@ const McCloudFalls = () => {
             </h2>
           </motion.div>
 
-          <div className="space-y-12">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Left Column - Content */}
             <motion.div
-              className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl p-8 text-white"
+              className="bg-white rounded-2xl p-8 shadow-lg"
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4"><Droplets className="w-12 h-12 text-emerald-600" /></div>
-              <h3 className="text-2xl font-bold mb-4">Upper Falls</h3>
-              <p className="text-white/90 leading-relaxed">
-                Starting with Upper Falls, visitors are greeted with a powerful cascade of water plunging into a crystal-clear pool below. The sight and sound of the rushing water create a sense of awe and tranquility. The pool at the base of Upper Falls is also a popular swimming spot during the warmer months, offering a refreshing respite from the summer heat.
-              </p>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                    <Droplets className="w-6 h-6 text-emerald-600 mr-2" />
+                    Upper Falls
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Powerful cascade plunging into crystal-clear pool, creating awe and tranquility. Popular swimming spot during warmer months.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                    <Waves className="w-6 h-6 text-emerald-600 mr-2" />
+                    Middle Falls
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Water gracefully tumbles over wide ledge into deep pool. Known for natural waterslides providing exhilarating experience.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                    <Camera className="w-6 h-6 text-emerald-600 mr-2" />
+                    Lower Falls
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    Dramatic 50-foot drop creating mesmerizing display. Popular photography spot with stunning forested backdrop.
+                  </p>
+                </div>
+              </div>
             </motion.div>
 
+            {/* Right Column - YouTube Video */}
             <motion.div
-              className="bg-gradient-to-br from-teal-500 to-emerald-500 rounded-2xl p-8 text-white"
+              className="bg-white rounded-2xl p-8 shadow-lg"
               initial={{ opacity: 0, x: 50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="text-4xl mb-4"><Waves className="w-12 h-12 text-emerald-600 mx-auto" /></div>
-              <h3 className="text-2xl font-bold mb-4">Middle Falls</h3>
-              <p className="text-white/90 leading-relaxed">
-                Continuing downstream, Middle Falls unveils a picturesque scene as the water gracefully tumbles over a wide ledge and into a deep pool. The surrounding granite cliffs and lush vegetation add to the beauty and serenity of the area. Middle Falls is known for its natural waterslides, which provide an exhilarating experience for both children and adults.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl p-8 text-white"
-              initial={{ opacity: 0, x: -50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <div className="text-4xl mb-4"><Camera className="w-12 h-12 text-emerald-600" /></div>
-              <h3 className="text-2xl font-bold mb-4">Lower Falls</h3>
-              <p className="text-white/90 leading-relaxed">
-                Finally, Lower Falls awaits with its grandeur and majesty. This waterfall showcases a dramatic 50-foot drop, creating a mesmerizing display of cascading water. Lower Falls is a popular spot for photographers, who are drawn to capture the stunning beauty of the waterfall against the backdrop of the surrounding forested landscape.
-              </p>
+              <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">
+                McCloud Falls: Visiting all Three Tiers of the Waterfall
+              </h3>
+              <div className="relative w-full h-64 rounded-xl overflow-hidden">
+                <iframe
+                  src="https://www.youtube.com/embed/2Rudm_inCBo"
+                  title="McCloud Falls: Visiting all Three Tiers of the Waterfall"
+                  className="w-full h-full"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
             </motion.div>
           </div>
         </div>
       </motion.section>
+
+
 
       {/* Activities Section */}
       <motion.section className="py-20 px-6"
@@ -259,63 +284,6 @@ const McCloudFalls = () => {
             ))}
           </motion.div>
 
-          <motion.div className="bg-white rounded-2xl p-8 shadow-lg"
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Accessibility & Trail System</h3>
-            <p className="text-lg text-gray-700 leading-relaxed text-center max-w-4xl mx-auto">
-              One of the most appealing aspects of McCloud Falls is its accessibility. The falls are easily reached via a well-maintained trail system, allowing visitors of all ages and fitness levels to enjoy the natural splendor. The trail to Upper Falls is a short walk from the parking area, while Middle and Lower Falls require a slightly longer hike. However, the scenic beauty that awaits at each waterfall makes the journey well worth it.
-            </p>
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* River Activities Section */}
-      <motion.section className="py-20 px-6 bg-gradient-to-r from-emerald-50 to-teal-50"
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 1 }}
-      >
-        <div className="container mx-auto max-w-6xl">
-          <motion.div className="text-center mb-16"
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
-              McCloud River Adventures
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div
-              className="bg-white rounded-2xl p-8 shadow-lg"
-              initial={{ opacity: 0, x: -50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="text-4xl mb-4 text-center"><Fish className="w-12 h-12 text-emerald-600" /></div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">Fishing Paradise</h3>
-              <p className="text-gray-700 leading-relaxed">
-                In addition to the waterfalls, the McCloud River offers ample opportunities for fishing, kayaking, and picnicking along its banks. The river is renowned for its trout fisheries, attracting anglers from near and far who seek the thrill of casting a line in its pristine waters. Whether you are an experienced angler or a novice looking to try your hand at fishing, the McCloud River provides a serene and picturesque setting to test your skills.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="bg-white rounded-2xl p-8 shadow-lg"
-              initial={{ opacity: 0, x: 50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <div className="text-4xl mb-4 text-center"><Waves className="w-12 h-12 text-emerald-600" /></div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">Water Activities</h3>
-              <p className="text-gray-700 leading-relaxed">
-                The McCloud River provides the perfect setting for various water activities. From kayaking through the gentle currents to picnicking along the scenic riverbanks, visitors can enjoy a full day of outdoor recreation. The crystal-clear waters and surrounding natural beauty create an idyllic environment for relaxation and adventure.
-              </p>
-            </motion.div>
-          </div>
         </div>
       </motion.section>
 
@@ -326,7 +294,7 @@ const McCloudFalls = () => {
         transition={{ duration: 1 }}
       >
         <div className="container mx-auto max-w-4xl text-center">
-          <motion.h2 className="text-4xl md:text-5xl font-bold text-white zen-font mb-6"
+          <motion.h2 className="text-4xl md:text-5xl font-bold text-black zen-font mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -355,7 +323,7 @@ const McCloudFalls = () => {
         </div>
       </motion.section>
 
-      {/* New Image Gallery Section */}
+      {/* McCloud Falls Gallery Section */}
       <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
         initial={{ opacity: 0, y: 50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -367,52 +335,15 @@ const McCloudFalls = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Scenic Views</h3>
-            <p className="text-lg text-gray-600">Explore the beautiful McCloud Falls area</p>
+            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">McCloud Falls Gallery</h3>
+            <p className="text-lg text-gray-600">Discover the three beautiful waterfalls along the McCloud River</p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Scenic Views ${imgIndex + 1}`}
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="font-semibold text-sm">Waterfall Views</h4>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Image Gallery Section 1 */}
-      <motion.section className="py-20 bg-gray-50"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.6 }}
-      >
-        <div className="container mx-auto px-6">
-          <motion.div className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">McCloud Gallery</h3>
-            <p className="text-lg text-gray-600">Explore the three beautiful McCloud Falls</p>
-          </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['/himg1.png', '/himg2.png', '/himg3.png', '/himg4.png'].map((image, imgIndex) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {['/mcf1.png', '/mcf2.png', '/mcf3.png', '/mcf4.png', '/mcf5.png', '/mcf6.png'].map((image, imgIndex) => (
               <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 1.0 + imgIndex * 0.1 }}
+                transition={{ duration: 0.6, delay: 0.8 + imgIndex * 0.1 }}
               >
                 <img
                   src={image}
@@ -420,68 +351,8 @@ const McCloudFalls = () => {
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Image Gallery Section 2 */}
-      <motion.section className="py-20 bg-white"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 1.2 }}
-      >
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {['/himg5.png', '/himg1.png', '/himg2.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1.4 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`McCloud Falls ${imgIndex + 5}`}
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Additional Image Gallery Section */}
-      <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 1.6 }}
-      >
-        <div className="container mx-auto px-6">
-          <motion.div className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1.8 }}
-          >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">McCloud River Beauty</h3>
-            <p className="text-lg text-gray-600">Discover the stunning landscapes along the McCloud River</p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 2.0 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`McCloud River Beauty ${imgIndex + 1}`}
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="font-semibold text-sm">River Views</h4>
+                  <h4 className="font-semibold text-sm">Waterfall Beauty</h4>
                 </div>
               </motion.div>
             ))}

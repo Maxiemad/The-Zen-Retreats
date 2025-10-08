@@ -23,6 +23,10 @@ body {
   font-family: 'Playfair Display', serif;
 }
 
+.sky-green-text {
+  color: #70C2B8 !important;
+}
+
 .cursive-font {
   font-family: 'Dancing Script', cursive;
 }

@@ -52,7 +52,7 @@ const CityOfRedding = () => {
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/pexels-photo-5638612.jpeg"
+            src="/cor1.png"
             alt="City of Redding"
             className="w-full h-full object-cover"
           />
@@ -150,7 +150,7 @@ const CityOfRedding = () => {
         </div>
       </motion.section>
 
-      {/* Shopping Section */}
+      {/* Shopping & Dining Section */}
       <motion.section className="py-20 px-6 bg-gradient-to-r from-emerald-50 to-teal-50"
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
@@ -163,128 +163,140 @@ const CityOfRedding = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
-              Shopping Options in Redding
+              Shopping & Dining in Redding
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Shopping Column */}
             <motion.div
-              className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl p-8 text-white"
+              className="bg-white rounded-2xl p-8 shadow-lg"
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="text-4xl mb-4"><ShoppingBag className="w-12 h-12 text-emerald-600" /></div>
-              <h3 className="text-2xl font-bold mb-4">Mt. Shasta Mall</h3>
-              <p className="text-white/90 leading-relaxed">
-                As the largest shopping center in Redding, Mt. Shasta Mall is home to a wide range of popular stores and brands. From department stores like Macy's and JCPenney to specialty shops and boutiques, the mall offers a diverse shopping experience for fashion, home goods, electronics, and more.
-              </p>
+              <div className="flex items-center mb-6">
+                <ShoppingBag className="w-8 h-8 text-emerald-600 mr-3" />
+                <h3 className="text-2xl font-bold text-gray-800">Shopping</h3>
+              </div>
+              
+              <div className="space-y-4 mb-6">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Mt. Shasta Mall</h4>
+                  <p className="text-gray-600 text-sm">Largest shopping center with Macy's, JCPenney, and specialty stores.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Downtown Redding</h4>
+                  <p className="text-gray-600 text-sm">Charming boutiques, art galleries, and local artisan shops.</p>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <h4 className="font-semibold text-gray-800 mb-3">Highlights:</h4>
+                <div className="grid grid-cols-1 gap-2">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                    <span className="text-sm text-gray-600">Vintage & antique shops</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                    <span className="text-sm text-gray-600">Farmers markets</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                    <span className="text-sm text-gray-600">Art walks & street fairs</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                    <span className="text-sm text-gray-600">Local artisan crafts</span>
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
+            {/* Dining Column */}
             <motion.div
-              className="bg-gradient-to-br from-teal-500 to-emerald-500 rounded-2xl p-8 text-white"
+              className="bg-white rounded-2xl p-8 shadow-lg"
               initial={{ opacity: 0, x: 50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="text-4xl mb-4"><Store className="w-12 h-12 text-emerald-600 mx-auto" /></div>
-              <h3 className="text-2xl font-bold mb-4">Downtown Redding</h3>
-              <p className="text-white/90 leading-relaxed">
-                The downtown area of Redding is known for its charming boutiques and unique stores. Explore locally owned shops that offer a curated selection of clothing, accessories, home decor, art, and handmade goods. The downtown district also hosts regular events, such as art walks and street fairs.
-              </p>
+              <div className="flex items-center mb-6">
+                <Utensils className="w-8 h-8 text-emerald-600 mr-3" />
+                <h3 className="text-2xl font-bold text-gray-800">Dining</h3>
+              </div>
+              
+              <div className="space-y-4 mb-6">
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Downtown Dining</h4>
+                  <p className="text-gray-600 text-sm">Farm-to-table restaurants, cafes, and international cuisine.</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2">Riverfront Dining</h4>
+                  <p className="text-gray-600 text-sm">Scenic Sacramento River views with romantic and casual dining.</p>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <h4 className="font-semibold text-gray-800 mb-3">Highlights:</h4>
+                <div className="grid grid-cols-1 gap-2">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                    <span className="text-sm text-gray-600">Craft breweries & wineries</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                    <span className="text-sm text-gray-600">Thai, Japanese, Italian, Mexican</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                    <span className="text-sm text-gray-600">Upscale bistros & cozy cafes</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                    <span className="text-sm text-gray-600">Family & romantic dining</span>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
-
-          <motion.div className="bg-white rounded-2xl p-8 shadow-lg mt-12"
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Shopping Highlights</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {shoppingHighlights.map((highlight, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-start space-x-3"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
-                >
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">{highlight}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </motion.section>
 
-      {/* Dining Section */}
-      <motion.section className="py-20 px-6"
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 1 }}
+      {/* First Redding Gallery Section */}
+      <motion.section className="py-20 bg-gray-50"
+        initial={{ opacity: 0, y: 50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: 0.6 }}
       >
-        <div className="container mx-auto max-w-6xl">
-          <motion.div className="text-center mb-16"
-            initial={{ opacity: 0, y: 50 }}
+        <div className="container mx-auto px-6">
+          <motion.div className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
-              Dining Options in Redding
-            </h2>
+            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Redding Cityscape</h3>
+            <p className="text-lg text-gray-600">Experience the vibrant urban landscape of Redding</p>
           </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div
-              className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl p-8 text-white"
-              initial={{ opacity: 0, x: -50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="text-4xl mb-4"><Utensils className="w-12 h-12 text-emerald-600" /></div>
-              <h3 className="text-2xl font-bold mb-4">Downtown Dining</h3>
-              <p className="text-white/90 leading-relaxed">
-                Redding's downtown area is a hub for diverse culinary experiences. From farm-to-table restaurants to international cuisines, the downtown district offers a range of dining options to satisfy any palate. Enjoy a meal at one of the many cozy cafes, upscale bistros, or vibrant eateries.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="bg-gradient-to-br from-teal-500 to-emerald-500 rounded-2xl p-8 text-white"
-              initial={{ opacity: 0, x: 50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <div className="text-4xl mb-4"><Camera className="w-12 h-12 text-emerald-600" /></div>
-              <h3 className="text-2xl font-bold mb-4">Riverfront Dining</h3>
-              <p className="text-white/90 leading-relaxed">
-                Several restaurants in Redding offer picturesque views of the Sacramento River, allowing diners to savor their meals while enjoying the scenic beauty of the surroundings. These riverfront establishments provide a delightful atmosphere for a romantic dinner or a casual outing with friends and family.
-              </p>
-            </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {['/cor1.png', '/cor2.png', '/cor3.png', '/cor4.png'].map((image, imgIndex) => (
+              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.6, delay: 1.0 + imgIndex * 0.1 }}
+              >
+                <img
+                  src={image}
+                  alt={`Redding Cityscape ${imgIndex + 1}`}
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h4 className="font-semibold text-sm">Urban Beauty</h4>
+                </div>
+              </motion.div>
+            ))}
           </div>
-
-          <motion.div className="bg-white rounded-2xl p-8 shadow-lg mt-12"
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Dining Highlights</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {diningHighlights.map((highlight, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-start space-x-3"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
-                >
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">{highlight}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </motion.section>
 
@@ -381,7 +393,7 @@ const CityOfRedding = () => {
         transition={{ duration: 1 }}
       >
         <div className="container mx-auto max-w-4xl text-center">
-          <motion.h2 className="text-4xl md:text-5xl font-bold text-white zen-font mb-6"
+          <motion.h2 className="text-4xl md:text-5xl font-bold text-black zen-font mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -410,133 +422,37 @@ const CityOfRedding = () => {
         </div>
       </motion.section>
 
-      {/* New Image Gallery Section */}
-      <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.4 }}
-      >
-        <div className="container mx-auto px-6">
-          <motion.div className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Urban Highlights</h3>
-            <p className="text-lg text-gray-600">Discover the vibrant city of Redding</p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Urban Highlights ${imgIndex + 1}`}
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="font-semibold text-sm">City Life</h4>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
 
-      {/* Image Gallery Section 1 */}
-      <motion.section className="py-20 bg-gray-50"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.6 }}
-      >
-        <div className="container mx-auto px-6">
-          <motion.div className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">City Gallery</h3>
-            <p className="text-lg text-gray-600">Discover the vibrant city of Redding</p>
-          </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['/himg1.png', '/himg2.png', '/himg3.png', '/himg4.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 1.0 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Redding ${imgIndex + 1}`}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Image Gallery Section 2 */}
+      {/* City of Redding Gallery Section */}
       <motion.section className="py-20 bg-white"
         initial={{ opacity: 0, y: 50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 1.2 }}
-      >
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {['/himg5.png', '/himg1.png', '/himg2.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1.4 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Redding ${imgIndex + 5}`}
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Additional Image Gallery Section */}
-      <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 1.6 }}
+        transition={{ duration: 0.8, delay: 1.4 }}
       >
         <div className="container mx-auto px-6">
           <motion.div className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1.8 }}
+            transition={{ duration: 0.8, delay: 1.6 }}
           >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">City Life</h3>
-            <p className="text-lg text-gray-600">Experience the vibrant culture and attractions of Redding</p>
+            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Redding City Views</h3>
+            <p className="text-lg text-gray-600">Explore the beautiful cityscape and landmarks of Redding</p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {['/cor5.png', '/cor6.png', '/cor7.png', '/cor8.png'].map((image, imgIndex) => (
               <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 2.0 + imgIndex * 0.1 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.6, delay: 1.8 + imgIndex * 0.1 }}
               >
                 <img
                   src={image}
-                  alt={`City Life ${imgIndex + 1}`}
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt={`Redding City View ${imgIndex + 5}`}
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="font-semibold text-sm">Urban Attractions</h4>
+                  <h4 className="font-semibold text-sm">Redding Landmarks</h4>
                 </div>
               </motion.div>
             ))}
