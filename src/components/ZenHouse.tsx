@@ -126,45 +126,23 @@ const ZenHouse = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
               The Zen House - An Overview
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed">
               The Zen House is the first property we had purchased at Shasta Lake, and it's been very dear to us all along! This is a large house offering 2400 sq ft of living space and an additional 1000 sq ft of covered entertainment space, with amazing Shasta Lake views.
             </p>
           </motion.div>
 
           {/* Amenities Grid with Images */}
-          <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {amenities.map((amenity, index) => (
-              <motion.div
-                key={amenity.title}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
-                whileHover={{ y: -5, scale: 1.02 }}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-              >
-                <div className="relative overflow-hidden h-48">
-                  <img
-                    src={amenity.image}
-                    alt={amenity.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg p-2">
-                    {amenity.icon}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">{amenity.title}</h3>
-                  <p className="text-emerald-600 font-medium text-xl mb-2">{amenity.value}</p>
-                  <p className="text-gray-600 text-sm">{amenity.description}</p>
-                </div>
-              </motion.div>
+              <div key={amenity.title} className="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img
+                  src={amenity.image}
+                  alt={amenity.title}
+                  className="w-full h-96 lg:h-[500px] object-cover"
+                />
+              </div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Enhanced Property Highlights Section */}
           <motion.div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 shadow-lg"
@@ -215,34 +193,50 @@ const ZenHouse = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-black zen-font mb-6">
               Entertainment & Comfort
             </h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div
-              className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl p-8 text-white"
+              className="relative bg-gradient-to-br from-emerald-500 to-teal-500 text-white p-10 min-h-[320px]"
+              style={{
+                clipPath: 'polygon(15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%)',
+                borderRadius: '60px 30px 60px 30px'
+              }}
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
+              <div className="absolute -top-4 -left-4 w-8 h-8 bg-white/20 rounded-full"></div>
+              <div className="absolute -top-2 -right-6 w-6 h-6 bg-white/20 rounded-full"></div>
+              <div className="absolute -bottom-3 -left-2 w-7 h-7 bg-white/20 rounded-full"></div>
+              <div className="absolute -bottom-2 -right-4 w-5 h-5 bg-white/20 rounded-full"></div>
               <div className="text-4xl mb-4"><Gamepad2 className="w-12 h-12 text-emerald-600 mx-auto" /></div>
               <h3 className="text-2xl font-bold mb-4">Entertainment Space</h3>
-              <p className="text-white/90 leading-relaxed">
+              <p className="text-white/90 leading-relaxed text-base">
                 The large entertainment room features a pool table, ping pong table, and a projector with giant screen for movie nights. Perfect for family fun and group activities.
               </p>
             </motion.div>
 
             <motion.div
-              className="bg-gradient-to-br from-teal-500 to-emerald-500 rounded-2xl p-8 text-white"
+              className="relative bg-gradient-to-br from-teal-500 to-emerald-500 text-white p-10 min-h-[320px]"
+              style={{
+                clipPath: 'polygon(15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%)',
+                borderRadius: '60px 30px 60px 30px'
+              }}
               initial={{ opacity: 0, x: 50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
+              <div className="absolute -top-4 -left-4 w-8 h-8 bg-white/20 rounded-full"></div>
+              <div className="absolute -top-2 -right-6 w-6 h-6 bg-white/20 rounded-full"></div>
+              <div className="absolute -bottom-3 -left-2 w-7 h-7 bg-white/20 rounded-full"></div>
+              <div className="absolute -bottom-2 -right-4 w-5 h-5 bg-white/20 rounded-full"></div>
               <div className="text-4xl mb-4">👑</div>
               <h3 className="text-2xl font-bold mb-4">Master Suites</h3>
-              <p className="text-white/90 leading-relaxed">
+              <p className="text-white/90 leading-relaxed text-base">
                 Two master suites with amazing lake views - one featuring a fireplace for cozy evenings, and another with a luxurious soaking tub for ultimate relaxation.
               </p>
             </motion.div>
@@ -257,7 +251,7 @@ const ZenHouse = () => {
         transition={{ duration: 1 }}
       >
         <div className="container mx-auto max-w-4xl text-center">
-          <motion.h2 className="text-4xl md:text-5xl font-bold text-white zen-font mb-6"
+          <motion.h2 className="text-4xl md:text-5xl font-bold text-black zen-font mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
@@ -297,8 +291,8 @@ const ZenHouse = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">House Gallery</h3>
-            <p className="text-lg text-gray-600">Discover The Zen House entertainment spaces</p>
+            <h3 className="text-4xl font-bold text-white zen-font mb-4">House Gallery</h3>
+            <p className="text-lg text-white">Discover The Zen House entertainment spaces</p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {['/himg1.png', '/himg2.png', '/himg3.png', '/himg4.png'].map((image, imgIndex) => (

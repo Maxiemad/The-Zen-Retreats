@@ -8,7 +8,13 @@ interface LoadingScreenProps {
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center zen-gradient"
+      className="fixed inset-0 z-50 flex items-center justify-center"
+      style={{
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/preloaderbg.jpeg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 0.8 }}
       transition={{ duration: 0.8, ease: 'easeInOut' }}

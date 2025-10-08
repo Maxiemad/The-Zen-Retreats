@@ -36,8 +36,9 @@ const Contact = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="text-center">
-              <div className="space-y-6 max-w-2xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {/* Left Column */}
+              <div className="space-y-6">
                 <motion.div
                   className="flex items-start space-x-4"
                   whileHover={{ x: 5 }}
@@ -67,7 +68,10 @@ const Contact = () => {
                     </p>
                   </div>
                 </motion.div>
+              </div>
 
+              {/* Right Column */}
+              <div className="space-y-6">
                 <motion.div
                   className="flex items-start space-x-4"
                   whileHover={{ x: 5 }}

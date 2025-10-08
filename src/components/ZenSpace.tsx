@@ -200,27 +200,43 @@ const ZenSpace = () => {
 
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div
-              className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl p-8 text-white"
+              className="relative bg-gradient-to-br from-emerald-500 to-teal-500 text-white p-10 min-h-[320px]"
+              style={{
+                clipPath: 'polygon(15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%)',
+                borderRadius: '60px 30px 60px 30px'
+              }}
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
+              <div className="absolute -top-4 -left-4 w-8 h-8 bg-white/20 rounded-full"></div>
+              <div className="absolute -top-2 -right-6 w-6 h-6 bg-white/20 rounded-full"></div>
+              <div className="absolute -bottom-3 -left-2 w-7 h-7 bg-white/20 rounded-full"></div>
+              <div className="absolute -bottom-2 -right-4 w-5 h-5 bg-white/20 rounded-full"></div>
               <div className="text-4xl mb-4"><Sunrise className="w-12 h-12 text-emerald-600 mx-auto" /></div>
               <h3 className="text-2xl font-bold mb-4">Breathtaking Views</h3>
-              <p className="text-white/90 leading-relaxed">
+              <p className="text-white/90 leading-relaxed text-base">
                 The hallmark of our property are the breathtaking views that can be enjoyed from pretty much everywhere, including inside the Yurt. Clear, unobstructed views of the lake and surrounding hills create the perfect backdrop for any activity.
               </p>
             </motion.div>
 
             <motion.div
-              className="bg-gradient-to-br from-teal-500 to-emerald-500 rounded-2xl p-8 text-white"
+              className="relative bg-gradient-to-br from-teal-500 to-emerald-500 text-white p-10 min-h-[320px]"
+              style={{
+                clipPath: 'polygon(15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%)',
+                borderRadius: '60px 30px 60px 30px'
+              }}
               initial={{ opacity: 0, x: 50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
+              <div className="absolute -top-4 -left-4 w-8 h-8 bg-white/20 rounded-full"></div>
+              <div className="absolute -top-2 -right-6 w-6 h-6 bg-white/20 rounded-full"></div>
+              <div className="absolute -bottom-3 -left-2 w-7 h-7 bg-white/20 rounded-full"></div>
+              <div className="absolute -bottom-2 -right-4 w-5 h-5 bg-white/20 rounded-full"></div>
               <div className="text-4xl mb-4">🦌</div>
               <h3 className="text-2xl font-bold mb-4">Wildlife Encounters</h3>
-              <p className="text-white/90 leading-relaxed">
+              <p className="text-white/90 leading-relaxed text-base">
                 Our picturesque trail offers an opportunity to enjoy deer sightings during your early morning walk, and of course the lake views. It's a perfect way to connect with nature and start your day in tranquility.
               </p>
             </motion.div>
