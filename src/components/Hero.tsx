@@ -127,7 +127,7 @@ const Hero = () => {
                 text="The "
                 speed={150}
                 delay={500}
-                className="text-white"
+                className="zen-text-gradient bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent"
               />
               <TypewriterText
                 text="Zen Retreats"

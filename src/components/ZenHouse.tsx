@@ -24,42 +24,42 @@ const ZenHouse = () => {
       icon: <Home className="w-8 h-8 text-emerald-600" />, 
       title: 'Living Space', 
       value: '2400 sq ft',
-      image: '/pimg1.png',
+      image: '/zh2.png',
       description: 'Spacious living areas with premium finishes'
     },
     { 
       icon: <Gamepad2 className="w-8 h-8 text-emerald-600" />, 
       title: 'Entertainment', 
       value: '1000 sq ft',
-      image: '/pimg2.png',
+      image: '/zh3.png',
       description: 'Dedicated entertainment space with games'
     },
     { 
       icon: <Bed className="w-8 h-8 text-emerald-600" />, 
       title: 'Bedrooms', 
       value: '4',
-      image: '/pimg3.png',
+      image: '/zh4.png',
       description: 'Comfortable bedrooms for all guests'
     },
     { 
       icon: <Bath className="w-8 h-8 text-emerald-600" />, 
       title: 'Bathrooms', 
       value: '4',
-      image: '/pimg4.png',
+      image: '/zh5.png',
       description: 'Modern bathrooms with premium fixtures'
     },
     { 
       icon: <Users className="w-8 h-8 text-emerald-600" />, 
       title: 'Sleeps', 
       value: '12 guests',
-      image: '/pimg5.png',
+      image: '/zh6.png',
       description: 'Perfect for large groups and families'
     },
     { 
       icon: <Eye className="w-8 h-8 text-emerald-600" />, 
       title: 'Lake Views', 
       value: 'Amazing',
-      image: '/pimg1.png',
+      image: '/zh7.png',
       description: 'Breathtaking views of Shasta Lake'
     }
   ];
@@ -70,7 +70,7 @@ const ZenHouse = () => {
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/pimg1.png"
+            src="/zh1.png"
             alt="The Zen House"
             className="w-full h-full object-cover"
           />
@@ -82,7 +82,7 @@ const ZenHouse = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          <motion.h1 className="text-6xl md:text-8xl font-bold mb-6 zen-font"
+          <motion.h1 className="text-6xl md:text-8xl font-bold mb-6 zen-font text-black"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
@@ -214,7 +214,7 @@ const ZenHouse = () => {
               <div className="absolute -bottom-3 -left-2 w-7 h-7 bg-white/20 rounded-full"></div>
               <div className="absolute -bottom-2 -right-4 w-5 h-5 bg-white/20 rounded-full"></div>
               <div className="text-4xl mb-4"><Gamepad2 className="w-12 h-12 text-emerald-600 mx-auto" /></div>
-              <h3 className="text-2xl font-bold mb-4">Entertainment Space</h3>
+              <h3 className="text-2xl font-bold mb-4 text-black">Entertainment Space</h3>
               <p className="text-white/90 leading-relaxed text-base">
                 The large entertainment room features a pool table, ping pong table, and a projector with giant screen for movie nights. Perfect for family fun and group activities.
               </p>
@@ -235,7 +235,7 @@ const ZenHouse = () => {
               <div className="absolute -bottom-3 -left-2 w-7 h-7 bg-white/20 rounded-full"></div>
               <div className="absolute -bottom-2 -right-4 w-5 h-5 bg-white/20 rounded-full"></div>
               <div className="text-4xl mb-4">👑</div>
-              <h3 className="text-2xl font-bold mb-4">Master Suites</h3>
+              <h3 className="text-2xl font-bold mb-4 text-black">Master Suites</h3>
               <p className="text-white/90 leading-relaxed text-base">
                 Two master suites with amazing lake views - one featuring a fireplace for cozy evenings, and another with a luxurious soaking tub for ultimate relaxation.
               </p>
@@ -280,64 +280,49 @@ const ZenHouse = () => {
       </motion.section>
 
       {/* Image Gallery Section 1 */}
-      <motion.section className="py-20 bg-gray-50"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.6 }}
-      >
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <motion.div className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <h3 className="text-4xl font-bold text-white zen-font mb-4">House Gallery</h3>
-            <p className="text-lg text-white">Discover The Zen House entertainment spaces</p>
-          </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['/himg1.png', '/himg2.png', '/himg3.png', '/himg4.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 1.0 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Zen House ${imgIndex + 1}`}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-bold text-black zen-font mb-4">House Gallery</h3>
           </div>
-        </div>
-      </motion.section>
+          {/* Interior Views Section */}
+          <div className="mb-16">
+            <div className="text-left mb-8">
+              <h4 className="text-2xl font-bold text-black zen-font mb-2">Interior Views</h4>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {['/zh8.png', '/zh9.png', '/zh10.png', '/zh11.png', '/zh17.png', '/zh19.png', '/zh22.png', '/zh27.png'].map((image, imgIndex) => (
+                <div key={imgIndex} className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <img
+                    src={image}
+                    alt={`Zen House Interior ${imgIndex + 1}`}
+                    className="w-full h-96 object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
 
-      {/* Image Gallery Section 2 */}
-      <motion.section className="py-20 bg-white"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 1.2 }}
-      >
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {['/himg5.png', '/himg1.png', '/himg2.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1.4 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Zen House ${imgIndex + 5}`}
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
+          {/* Outdoor Views Section */}
+          <div>
+            <div className="text-left mb-8">
+              <h4 className="text-2xl font-bold text-black zen-font mb-2">Outdoor Views</h4>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {['/zh12.png', '/zh13.png', '/zh14.png', '/zh16.png', '/zh21.png', '/zh24.png', '/zh25.png', '/zh28.png'].map((image, imgIndex) => (
+                <div key={imgIndex} className="bg-white rounded-xl shadow-lg overflow-hidden">
+                  <img
+                    src={image}
+                    alt={`Zen House Outdoor ${imgIndex + 1}`}
+                    className="w-full h-96 object-cover"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </motion.section>
+      </section>
+
     </div>
   );
 };

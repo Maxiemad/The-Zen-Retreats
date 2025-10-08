@@ -182,7 +182,7 @@ const About = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
               What Do We Offer?
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-white max-w-3xl mx-auto">
               The property can easily accommodate groups of 20-25 people (max 18 adults) who would like to 
               co-locate for various purposes and conduct sightseeing and group activities together.
             </p>

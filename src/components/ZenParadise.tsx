@@ -12,7 +12,6 @@ const ZenParadise = () => {
     'Master suite with fireplace, soaking tub & walk-in closet',
     '65" TV with premium sound-bar for immersive entertainment',
     'Fully equipped gourmet kitchen with modern appliances',
-    'Elegant formal dining room with lake views',
     'Dimmable lighting in every room for perfect ambiance',
     'Outdoor BBQ grill & hammock for lakeside relaxation',
     'Sleeps 9 comfortably with plush bedding and premium linens'
@@ -186,8 +185,8 @@ const ZenParadise = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold text-white zen-font mb-4">Property Gallery</h3>
-            <p className="text-lg text-white">Discover the beauty of The Zen Paradise</p>
+            <h3 className="text-4xl font-bold text-black zen-font mb-4">Property Gallery</h3>
+            <p className="text-lg text-emerald-500">Discover the beauty of The Zen Paradise</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {['/zp8.png', '/zp9.png', '/zp10.png', '/zp11.png'].map((image, imgIndex) => (
@@ -227,7 +226,7 @@ const ZenParadise = () => {
         transition={{ duration: 1 }}
       >
         <div className="container mx-auto max-w-4xl text-center">
-          <motion.h2 className="text-4xl md:text-5xl font-bold text-white zen-font mb-6"
+          <motion.h2 className="text-4xl md:text-5xl font-bold text-black zen-font mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}

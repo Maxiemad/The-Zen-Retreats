@@ -301,7 +301,7 @@ const ZenSpace = () => {
         transition={{ duration: 1 }}
       >
         <div className="container mx-auto max-w-4xl text-center">
-          <motion.h2 className="text-4xl md:text-5xl font-bold text-white zen-font mb-6"
+          <motion.h2 className="text-4xl md:text-5xl font-bold text-black zen-font mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
