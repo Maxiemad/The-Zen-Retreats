@@ -24,42 +24,42 @@ const ZenSpace = () => {
       icon: <Tent className="w-8 h-8 text-emerald-600" />, 
       title: 'Space Type', 
       value: 'Outdoor Retreat',
-      image: '/simg1.png',
+      image: '/zs2.jpeg',
       description: 'Perfect for group activities and retreats'
     },
     { 
       icon: <Users className="w-8 h-8 text-emerald-600" />, 
       title: 'Capacity', 
       value: '20-25 people',
-      image: '/simg2.png',
+      image: '/zs3.jpeg',
       description: 'Spacious area for large groups'
     },
     { 
       icon: <Eye className="w-8 h-8 text-emerald-600" />, 
       title: 'Lake Views', 
       value: 'Unobstructed',
-      image: '/simg3.png',
+      image: '/zs4.jpeg',
       description: 'Breathtaking panoramic lake views'
     },
     { 
       icon: <Yurt className="w-8 h-8 text-emerald-600" />, 
       title: 'Yurt', 
       value: '2 Full Beds',
-      image: '/simg4.png',
+      image: '/zs5.jpeg',
       description: 'Comfortable accommodation option'
     },
     { 
       icon: <Flame className="w-8 h-8 text-emerald-600" />, 
       title: 'Fireplace', 
       value: 'Outdoor',
-      image: '/simg5.png',
+      image: '/zs6.jpeg',
       description: 'Cozy outdoor fireplace area'
     },
     { 
       icon: <Bath className="w-8 h-8 text-emerald-600" />, 
       title: 'Bathroom', 
       value: 'Outdoor',
-      image: '/simg1.png',
+      image: '/zs7.jpeg',
       description: 'Convenient outdoor bathroom facilities'
     }
   ];
@@ -70,7 +70,7 @@ const ZenSpace = () => {
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/simg1.png"
+            src="/zs1.jpeg"
             alt="The Zen Space"
             className="w-full h-full object-cover"
           />
@@ -126,45 +126,23 @@ const ZenSpace = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
               The Zen Space - An Overview
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed">
               The Zen Space is the group activity space centrally located between the two large houses, designed specifically for hosting retreats.
             </p>
           </motion.div>
 
           {/* Amenities Grid with Images */}
-          <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 mb-16">
             {amenities.map((amenity, index) => (
-              <motion.div
-                key={amenity.title}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
-                whileHover={{ y: -5, scale: 1.02 }}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-              >
-                <div className="relative overflow-hidden h-48">
-                  <img
-                    src={amenity.image}
-                    alt={amenity.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg p-2">
-                    {amenity.icon}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">{amenity.title}</h3>
-                  <p className="text-emerald-600 font-medium text-xl mb-2">{amenity.value}</p>
-                  <p className="text-gray-600 text-sm">{amenity.description}</p>
-                </div>
-              </motion.div>
+              <div key={amenity.title} className="bg-white rounded-xl shadow-lg overflow-hidden">
+                <img
+                  src={amenity.image}
+                  alt={amenity.title}
+                  className="w-full h-96 lg:h-[500px] object-cover"
+                />
+              </div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Enhanced Space Features Section */}
           <motion.div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 shadow-lg"
@@ -266,19 +244,14 @@ const ZenSpace = () => {
             <p className="text-lg text-gray-600">Explore The Zen Space for group activities</p>
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['/simg1.png', '/simg2.png', '/simg3.png', '/simg4.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 1.0 + imgIndex * 0.1 }}
-              >
+            {['/zs8.jpeg', '/zs9.jpeg', '/zs10.jpeg', '/zs12.png'].map((image, imgIndex) => (
+              <div key={imgIndex} className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <img
                   src={image}
                   alt={`Zen Space ${imgIndex + 1}`}
-                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-96 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -292,19 +265,14 @@ const ZenSpace = () => {
       >
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {['/simg5.png', '/simg1.png', '/simg2.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1.4 + imgIndex * 0.1 }}
-              >
+            {['/zs1.jpeg', '/zs2.jpeg', '/zs3.jpeg'].map((image, imgIndex) => (
+              <div key={imgIndex} className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <img
                   src={image}
                   alt={`Zen Space ${imgIndex + 5}`}
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-[500px] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
