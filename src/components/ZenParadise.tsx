@@ -78,19 +78,19 @@ const ZenParadise = () => {
         <motion.div className="relative z-10 text-center text-white px-6"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 0.3 }}
         >
           <motion.h1 className="text-6xl md:text-8xl font-bold mb-6 zen-font text-black"
             initial={{ opacity: 0, y: 30, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, delay: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.3 }}
           >
             The Zen Paradise
           </motion.h1>
           <motion.p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: 0.3 }}
           >
             A premium house with breathtaking lake views
           </motion.p>
@@ -100,7 +100,7 @@ const ZenParadise = () => {
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.2 }}
+            transition={{ duration: 0.3 }}
             onClick={() => window.open('https://www.gotoretreats.com/l/entire-villa-in-shasta-county-california-united-states/66305151-798d-40a1-971f-a6c5b75da920', '_blank')}
           >
             <motion.div
@@ -149,13 +149,13 @@ const ZenParadise = () => {
           <motion.div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 shadow-lg"
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.3 }}
           >
             <motion.h3 
               className="text-3xl font-bold text-gray-800 mb-8 text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.3 }}
             >
               Property Features
             </motion.h3>
@@ -166,7 +166,7 @@ const ZenParadise = () => {
                   className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 group"
                   initial={{ opacity: 0, x: -20 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-3 h-3 bg-emerald-500 rounded-full mt-2 flex-shrink-0 group-hover:scale-125 transition-transform duration-300" />
@@ -236,7 +236,7 @@ const ZenParadise = () => {
           <motion.p className="text-xl text-white/90 mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.3 }}
           >
             Book your stay at The Zen Paradise and immerse yourself in luxury and natural beauty.
           </motion.p>
@@ -246,7 +246,7 @@ const ZenParadise = () => {
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.3 }}
           >
             <span>Book Now!</span>
             <ArrowRight size={20} />

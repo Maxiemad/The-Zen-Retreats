@@ -80,19 +80,19 @@ const ZenSpace = () => {
         <motion.div className="relative z-10 text-center text-white px-6"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 0.3 }}
         >
           <motion.h1 className="text-6xl md:text-8xl font-bold mb-6 zen-font"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.8 }}
+            transition={{ duration: 0.3 }}
           >
             The Zen Space
           </motion.h1>
           <motion.p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: 0.3 }}
           >
             The outdoor space for group activities
           </motion.p>
@@ -102,7 +102,7 @@ const ZenSpace = () => {
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.2 }}
+            transition={{ duration: 0.3 }}
             onClick={() => window.open('https://www.gotoretreats.com/l/mt-shasta-retreat-venue-with-premium-views-of-shasta-lake/65ebfa9d-a3d7-41b2-81c1-2201c222a56f', '_blank')}
           >
             <span>Book Now</span>
@@ -114,14 +114,14 @@ const ZenSpace = () => {
       {/* Overview Section */}
       <motion.section ref={ref} className="py-20 px-6"
         initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 1 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
       >
         <div className="container mx-auto max-w-6xl">
           <motion.div className="text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
               The Zen Space - An Overview
@@ -147,14 +147,14 @@ const ZenSpace = () => {
           {/* Enhanced Space Features Section */}
           <motion.div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 shadow-lg"
             initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
           >
             <motion.h3 
               className="text-3xl font-bold text-gray-800 mb-8 text-center"
               initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
             >
               Space Features
             </motion.h3>
@@ -165,8 +165,8 @@ const ZenSpace = () => {
                   className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 group"
                   whileHover={{ x: 5, scale: 1.02 }}
                   initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3 }}
                 >
                   <div className="flex items-start space-x-4">
                     <div className="w-3 h-3 bg-emerald-500 rounded-full mt-2 flex-shrink-0 group-hover:scale-125 transition-transform duration-300" />
@@ -184,14 +184,14 @@ const ZenSpace = () => {
       {/* Special Features Section */}
       <motion.section className="py-20 px-6"
         initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 1 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
       >
         <div className="container mx-auto max-w-6xl">
           <motion.div className="text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
               Unique Experiences
@@ -206,8 +206,8 @@ const ZenSpace = () => {
                 borderRadius: '60px 30px 60px 30px'
               }}
               initial={{ opacity: 0, x: -50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
             >
               <div className="absolute -top-4 -left-4 w-8 h-8 bg-white/20 rounded-full"></div>
               <div className="absolute -top-2 -right-6 w-6 h-6 bg-white/20 rounded-full"></div>
@@ -227,8 +227,8 @@ const ZenSpace = () => {
                 borderRadius: '60px 30px 60px 30px'
               }}
               initial={{ opacity: 0, x: 50 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3 }}
             >
               <div className="absolute -top-4 -left-4 w-8 h-8 bg-white/20 rounded-full"></div>
               <div className="absolute -top-2 -right-6 w-6 h-6 bg-white/20 rounded-full"></div>
@@ -247,14 +247,14 @@ const ZenSpace = () => {
       {/* Image Gallery Section 1 */}
       <motion.section className="py-20 bg-gray-50"
         initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.6 }}
+              animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
       >
         <div className="container mx-auto px-6">
           <motion.div className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
           >
             <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Space Gallery</h3>
             <p className="text-lg text-gray-600">Explore The Zen Space for group activities</p>
@@ -276,8 +276,8 @@ const ZenSpace = () => {
       {/* Image Gallery Section 2 */}
       <motion.section className="py-20 bg-white"
         initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 1.2 }}
+              animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
       >
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -297,21 +297,21 @@ const ZenSpace = () => {
       {/* CTA Section */}
       <motion.section className="py-20 px-6 bg-gradient-to-r from-emerald-500 to-teal-500"
         initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 1 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
       >
         <div className="container mx-auto max-w-4xl text-center">
           <motion.h2 className="text-4xl md:text-5xl font-bold text-black zen-font mb-6"
             initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
           >
             Ready for Group Activities?
           </motion.h2>
           <motion.p className="text-xl text-white/90 mb-8"
             initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
           >
             Book The Zen Space for your next retreat, yoga session, or group gathering in the heart of nature.
           </motion.p>
@@ -320,8 +320,8 @@ const ZenSpace = () => {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
           >
             <span>Book Now!</span>
             <ArrowRight size={20} />

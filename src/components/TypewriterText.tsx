@@ -6,6 +6,7 @@ interface TypewriterTextProps {
   speed?: number;
   delay?: number;
   className?: string;
+  style?: React.CSSProperties;
   onComplete?: () => void;
 }
 
@@ -14,6 +15,7 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
   speed = 100,
   delay = 0,
   className = '',
+  style,
   onComplete
 }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -37,6 +39,7 @@ const TypewriterText: React.FC<TypewriterTextProps> = ({
   return (
     <motion.span
       className={className}
+      style={style}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.1 }}

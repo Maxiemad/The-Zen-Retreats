@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { MapPin, Clock, Star, ArrowRight } from 'lucide-react';
+import { Star, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import AttractionCard from './AttractionCard';
 
@@ -56,9 +56,7 @@ Thanks and Regards,
         'Photography',
         'Gift shop'
       ],
-      distance: '15 minutes',
-      rating: 4.8,
-      driveTime: 'Drive time'
+      rating: 4.8
     },
     {
       id: 2,
@@ -73,9 +71,7 @@ Thanks and Regards,
         'Photography',
         'Year-round activities'
       ],
-      distance: '45 minutes',
-      rating: 4.9,
-      driveTime: 'Drive time'
+      rating: 4.9
     },
     {
       id: 3,
@@ -90,9 +86,7 @@ Thanks and Regards,
         'Visitor center',
         'Camping'
       ],
-      distance: '1.5 hours',
-      rating: 4.7,
-      driveTime: 'Drive time'
+      rating: 4.7
     },
     {
       id: 4,
@@ -107,9 +101,7 @@ Thanks and Regards,
         'Museums',
         'Airport'
       ],
-      distance: '20 minutes',
-      rating: 4.5,
-      driveTime: 'Drive time'
+      rating: 4.5
     },
     {
       id: 5,
@@ -124,9 +116,7 @@ Thanks and Regards,
         'Picnic areas',
         'Hiking'
       ],
-      distance: '1 hour',
-      rating: 4.8,
-      driveTime: 'Drive time'
+      rating: 4.8
     },
     {
       id: 6,
@@ -141,9 +131,7 @@ Thanks and Regards,
         'Picnic areas',
         'Forest setting'
       ],
-      distance: '1 hour',
-      rating: 4.6,
-      driveTime: 'Drive time'
+      rating: 4.6
     },
     {
       id: 7,
@@ -158,9 +146,7 @@ Thanks and Regards,
         'Visitor center',
         'Hiking'
       ],
-      distance: '25 minutes',
-      rating: 4.7,
-      driveTime: 'Drive time'
+      rating: 4.7
     }
   ];
 

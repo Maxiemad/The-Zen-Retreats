@@ -133,32 +133,32 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, index, inView }) 
   // Carousel images for The Zen Haven
   const zenHavenImages = [
     {
-      src: '/himg1.png',
+      src: '/zhn2.jpeg',
       title: 'The Zen Haven',
       subtitle: 'Family-friendly lakeside oasis'
     },
     {
-      src: '/himg2.png',
+      src: '/zhn4.jpeg',
       title: '4 Bedrooms',
       subtitle: 'Sleeps 12+ guests comfortably'
     },
     {
-      src: '/himg3.png',
+      src: '/zhn8.jpeg',
       title: '900 sq ft Deck',
       subtitle: 'With BBQ and stunning lake views'
     },
     {
-      src: '/himg4.png',
+      src: '/zhn11.jpeg',
       title: 'Entertainment Area',
       subtitle: 'Poker set, corn hole & ping pong'
     },
     {
-      src: '/himg5.png',
+      src: '/zhn17.png',
       title: 'Gourmet Kitchen',
       subtitle: 'Fully equipped for family meals'
     },
     {
-      src: '/himg1.png',
+      src: '/zhn20.png',
       title: 'Kid-Friendly',
       subtitle: 'Dedicated kids room & amenities'
     }

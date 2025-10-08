@@ -20,7 +20,7 @@ const Hero = () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden parallax-bg"
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('/frontbg.jpg')`
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('/frontbg.jpg')`
       }}
     >
       <div className="absolute inset-0">
@@ -127,13 +127,13 @@ const Hero = () => {
                 text="The "
                 speed={150}
                 delay={500}
-                className="zen-text-gradient bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent"
+                className="zen-text-gradient bg-gradient-to-r from-emerald-500 to-emerald-600 bg-clip-text text-transparent font-bold"
               />
               <TypewriterText
                 text="Zen Retreats"
                 speed={150}
                 delay={2000}
-                className="zen-text-gradient bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent"
+                className="zen-text-gradient bg-gradient-to-r from-emerald-500 to-emerald-600 bg-clip-text text-transparent font-bold"
               />
             </motion.div>
           </h1>
