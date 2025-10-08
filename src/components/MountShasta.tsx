@@ -32,7 +32,7 @@ const MountShasta = () => {
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/HD-wallpaper-buddha-nature-lotus-relaxing-peace-meditation-thumbnail.jpg"
+            src="/ms1.png"
             alt="Mount Shasta"
             className="w-full h-full object-cover"
           />
@@ -79,6 +79,7 @@ const MountShasta = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.3 }}
+            onClick={() => window.open('https://www.gotoretreats.com/u/65e6d763-d1c0-40b2-bac3-b358c2da44d5', '_blank')}
           >
             <span>Plan Your Adventure</span>
             <ArrowRight size={20} />
@@ -127,27 +128,45 @@ const MountShasta = () => {
             ))}
           </motion.div>
 
-          <motion.div className="bg-white rounded-2xl p-8 shadow-lg"
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Mountain Highlights</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {highlights.map((highlight, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-start space-x-3"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                >
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">{highlight}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          <div className="grid md:grid-cols-2 gap-12">
+            <motion.div
+              className="bg-white border-2 border-emerald-200 shadow-xl rounded-2xl p-10 text-black"
+              initial={{ opacity: 0, x: -50 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <Mountain className="w-12 h-12 mb-4 text-emerald-600" />
+              <h3 className="text-2xl font-bold mb-4 text-black">Mountain Highlights</h3>
+              <ul className="text-base space-y-2">
+                <li>• 14,179 feet stratovolcano</li>
+                <li>• Pristine glaciers from Ice Age</li>
+                <li>• Spiritual "Root Chakra" significance</li>
+                <li>• Native American sacred site</li>
+                <li>• Hiking, climbing, skiing</li>
+                <li>• Breathtaking panoramic views</li>
+              </ul>
+            </motion.div>
+
+            <motion.div className="text-center"
+              initial={{ opacity: 0, x: 50 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <h3 className="text-3xl font-bold text-gray-800 mb-6">Climbing Mt. Shasta in a Day!</h3>
+              <div className="relative w-full max-w-5xl mx-auto">
+                <iframe
+                  width="100%"
+                  height="450"
+                  src="https://www.youtube.com/embed/EqspdSk5Zyg"
+                  title="Climbing Mt. Shasta in a Day!"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="rounded-xl shadow-lg"
+                ></iframe>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </motion.section>
 
@@ -179,6 +198,7 @@ const MountShasta = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
+            onClick={() => window.open('https://www.gotoretreats.com/u/65e6d763-d1c0-40b2-bac3-b358c2da44d5', '_blank')}
           >
             <span>Plan Your Visit!</span>
             <ArrowRight size={20} />
@@ -186,42 +206,6 @@ const MountShasta = () => {
         </div>
       </motion.section>
 
-      {/* New Image Gallery Section */}
-      <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.4 }}
-      >
-        <div className="container mx-auto px-6">
-          <motion.div className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Mountain Majesty</h3>
-            <p className="text-lg text-gray-600">Witness the grandeur of Mount Shasta</p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Mountain Majesty ${imgIndex + 1}`}
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="font-semibold text-sm">Alpine Beauty</h4>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
 
       {/* Image Gallery Section 1 */}
       <motion.section className="py-20 bg-gray-50"
@@ -238,8 +222,8 @@ const MountShasta = () => {
             <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Mountain Gallery</h3>
             <p className="text-lg text-gray-600">Discover the majestic beauty of Mount Shasta</p>
           </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['/himg1.png', '/himg2.png', '/himg3.png', '/himg4.png'].map((image, imgIndex) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+            {['/ms2.png', '/ms3.png', '/ms4.png'].map((image, imgIndex) => (
               <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -254,27 +238,18 @@ const MountShasta = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-      </motion.section>
-
-      {/* Image Gallery Section 2 */}
-      <motion.section className="py-20 bg-white"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 1.2 }}
-      >
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {['/himg5.png', '/himg1.png', '/himg2.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1.4 + imgIndex * 0.1 }}
+          {/* Second row for desktop */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {['/ms5.png', '/ms6.png', '/ms7.png'].map((image, imgIndex) => (
+              <motion.div key={imgIndex + 3} className="relative overflow-hidden rounded-xl shadow-lg group"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.6, delay: 1.3 + imgIndex * 0.1 }}
               >
                 <img
                   src={image}
-                  alt={`Mount Shasta ${imgIndex + 5}`}
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt={`Mount Shasta ${imgIndex + 4}`}
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
@@ -283,42 +258,6 @@ const MountShasta = () => {
         </div>
       </motion.section>
 
-      {/* Additional Image Gallery Section */}
-      <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 1.6 }}
-      >
-        <div className="container mx-auto px-6">
-          <motion.div className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1.8 }}
-          >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Alpine Adventures</h3>
-            <p className="text-lg text-gray-600">Explore the majestic beauty of Mount Shasta</p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 2.0 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Alpine Adventures ${imgIndex + 1}`}
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="font-semibold text-sm">Mountain Views</h4>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
     </div>
   );
 };

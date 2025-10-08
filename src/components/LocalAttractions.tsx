@@ -46,7 +46,7 @@ Thanks and Regards,
     {
       id: 1,
       name: 'Lake Shasta Caverns',
-      image: 'https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      image: '/ls3.png',
       description: 'Underground limestone caverns with guided tours.',
       features: [
         'Guided cave tours',
@@ -61,7 +61,7 @@ Thanks and Regards,
     {
       id: 2,
       name: 'Mount Shasta',
-      image: 'https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      image: '/ms3.png',
       description: '14,179-foot volcanic peak with hiking and spiritual experiences.',
       features: [
         'Hiking trails',
@@ -76,7 +76,7 @@ Thanks and Regards,
     {
       id: 3,
       name: 'Lassen Volcanic National Park',
-      image: 'https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+      image: '/lvp2.png',
       description: 'Volcanic landscape with geothermal features and lakes.',
       features: [
         'Geothermal features',

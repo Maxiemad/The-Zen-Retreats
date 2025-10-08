@@ -32,7 +32,7 @@ const LassenVolcanic = () => {
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/Yoga-Poses-For-Beginners-Wallpaper-for-Wall-710x488.jpg"
+            src="/lvp1.png"
             alt="Lassen Volcanic National Park"
             className="w-full h-full object-cover"
           />
@@ -79,6 +79,7 @@ const LassenVolcanic = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.3 }}
+            onClick={() => window.open('https://www.gotoretreats.com/u/65e6d763-d1c0-40b2-bac3-b358c2da44d5', '_blank')}
           >
             <span>Plan Your Visit</span>
             <ArrowRight size={20} />
@@ -127,27 +128,45 @@ const LassenVolcanic = () => {
             ))}
           </motion.div>
 
-          <motion.div className="bg-white rounded-2xl p-8 shadow-lg"
-            initial={{ opacity: 0, y: 50 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Park Highlights</h3>
-            <div className="grid md:grid-cols-2 gap-4">
-              {highlights.map((highlight, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-start space-x-3"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                >
-                  <div className="w-2 h-2 bg-emerald-500 rounded-full mt-2 flex-shrink-0" />
-                  <p className="text-gray-700">{highlight}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+          <div className="grid md:grid-cols-2 gap-12">
+            <motion.div className="text-center"
+              initial={{ opacity: 0, x: -50 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <h3 className="text-3xl font-bold text-gray-800 mb-6">The Very Best of Lassen Volcanic National Park | Your Complete Guide</h3>
+              <div className="relative w-full max-w-5xl mx-auto">
+                <iframe
+                  width="100%"
+                  height="450"
+                  src="https://www.youtube.com/embed/Tr3nnLs1gvU"
+                  title="The Very Best of Lassen Volcanic National Park | Your Complete Guide"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="rounded-xl shadow-lg"
+                ></iframe>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="bg-white border-2 border-emerald-200 shadow-xl rounded-2xl p-10 text-black"
+              initial={{ opacity: 0, x: 50 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              <Mountain className="w-12 h-12 mb-4 text-emerald-600" />
+              <h3 className="text-2xl font-bold mb-4 text-black">Park Highlights</h3>
+              <ul className="text-base space-y-2">
+                <li>• Lassen Peak - largest plug dome volcano</li>
+                <li>• Bumpass Hell hydrothermal area</li>
+                <li>• Emerald Lake pristine waters</li>
+                <li>• 100,000+ acres volcanic landscapes</li>
+                <li>• Scenic trails all skill levels</li>
+                <li>• Abundant wildlife & camping</li>
+              </ul>
+            </motion.div>
+          </div>
         </div>
       </motion.section>
 
@@ -186,44 +205,7 @@ const LassenVolcanic = () => {
         </div>
       </motion.section>
 
-      {/* New Image Gallery Section */}
-      <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.4 }}
-      >
-        <div className="container mx-auto px-6">
-          <motion.div className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Volcanic Wonders</h3>
-            <p className="text-lg text-gray-600">Explore the unique landscapes of Lassen Volcanic</p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Volcanic Wonders ${imgIndex + 1}`}
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="font-semibold text-sm">Geothermal Beauty</h4>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Image Gallery Section 1 */}
+      {/* First Image Gallery Section */}
       <motion.section className="py-20 bg-gray-50"
         initial={{ opacity: 0, y: 50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -235,11 +217,11 @@ const LassenVolcanic = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Volcanic Gallery</h3>
-            <p className="text-lg text-gray-600">Explore the unique volcanic landscape of Lassen</p>
+            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Volcanic Wonders</h3>
+            <p className="text-lg text-gray-600">Explore the unique landscapes of Lassen Volcanic National Park</p>
           </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['/himg1.png', '/himg2.png', '/himg3.png', '/himg4.png'].map((image, imgIndex) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+            {['/lvp2.png', '/lvp3.png', '/lvp4.png', '/lvp5.png', '/lvp6.png', '/lvp7.png', '/lvp8.png', '/lvp9.png', '/lvp10.png'].map((image, imgIndex) => (
               <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -257,63 +239,34 @@ const LassenVolcanic = () => {
         </div>
       </motion.section>
 
-      {/* Image Gallery Section 2 */}
+      {/* Second Image Gallery Section */}
       <motion.section className="py-20 bg-white"
         initial={{ opacity: 0, y: 50 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8, delay: 1.2 }}
       >
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {['/himg5.png', '/himg1.png', '/himg2.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 1.4 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Lassen Volcanic ${imgIndex + 5}`}
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Additional Image Gallery Section */}
-      <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 1.6 }}
-      >
-        <div className="container mx-auto px-6">
           <motion.div className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1.8 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
           >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Volcanic Landscapes</h3>
-            <p className="text-lg text-gray-600">Witness the unique geological wonders of Lassen Volcanic</p>
+            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Geothermal Landscapes</h3>
+            <p className="text-lg text-gray-600">Discover the unique geological features and natural beauty</p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {['/lvp11.png', '/lvp12.png', '/lvp13.png', '/lvp14.png', '/lvp15.png', '/lvp17.png', '/lvp18.png', '/lvp19.png', '/lvp20.png'].map((image, imgIndex) => (
               <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
                 initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 2.0 + imgIndex * 0.1 }}
+                transition={{ duration: 0.6, delay: 1.6 + imgIndex * 0.1 }}
               >
                 <img
                   src={image}
-                  alt={`Volcanic Landscapes ${imgIndex + 1}`}
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                  alt={`Lassen Volcanic ${imgIndex + 10}`}
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="font-semibold text-sm">Geological Wonders</h4>
-                </div>
               </motion.div>
             ))}
           </div>

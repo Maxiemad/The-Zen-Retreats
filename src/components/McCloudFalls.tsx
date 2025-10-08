@@ -88,6 +88,7 @@ const McCloudFalls = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.3 }}
+            onClick={() => window.open('https://www.gotoretreats.com/u/65e6d763-d1c0-40b2-bac3-b358c2da44d5', '_blank')}
           >
             <span>Plan Your Visit</span>
             <ArrowRight size={20} />
@@ -346,6 +347,7 @@ const McCloudFalls = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
+            onClick={() => window.open('https://www.gotoretreats.com/u/65e6d763-d1c0-40b2-bac3-b358c2da44d5', '_blank')}
           >
             <span>Plan Your Adventure!</span>
             <ArrowRight size={20} />

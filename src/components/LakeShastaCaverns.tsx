@@ -32,7 +32,7 @@ const LakeShastaCaverns = () => {
       <motion.section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/pexels-photo-5638612.jpeg"
+            src="/ls1.png"
             alt="Lake Shasta Caverns"
             className="w-full h-full object-cover"
           />
@@ -79,6 +79,7 @@ const LakeShastaCaverns = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.3 }}
+            onClick={() => window.open('https://www.gotoretreats.com/u/65e6d763-d1c0-40b2-bac3-b358c2da44d5', '_blank')}
           >
             <span>Plan Your Visit</span>
             <ArrowRight size={20} />
@@ -101,7 +102,7 @@ const LakeShastaCaverns = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 zen-font mb-6">
               A Natural Wonder
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl text-white max-w-4xl mx-auto leading-relaxed">
               Located near the stunning Shasta Lake in Northern California, the Lake Shasta Caverns are a must-visit destination for anyone who loves natural beauty and adventure. These caves are millions of years old and are full of fascinating geological formations that will leave you in awe.
             </p>
           </motion.div>
@@ -183,31 +184,68 @@ const LakeShastaCaverns = () => {
 
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div
-              className="bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl p-8 text-white"
+              className="bg-white border-2 border-emerald-200 shadow-xl rounded-2xl p-10 text-black relative"
+              style={{
+                clipPath: 'polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%)',
+                borderRadius: '20px',
+                minHeight: '320px'
+              }}
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <Bus className="w-12 h-12 mb-4" />
-              <h3 className="text-2xl font-bold mb-4">Bus & Boat Adventure</h3>
-              <p className="text-white/90 leading-relaxed">
-                The adventure begins with a scenic bus ride from the visitor's center to the shoreline of Shasta Lake. Then board a comfortable catamaran for a 15-minute boat ride across the lake to the entrance of the caverns, enjoying stunning scenery and wildlife including bald eagles and ospreys.
-              </p>
+              <Bus className="w-12 h-12 mb-4 text-emerald-600" />
+              <h3 className="text-2xl font-bold mb-4 text-black">Bus & Boat Adventure</h3>
+              <ul className="text-base space-y-2">
+                <li>• Scenic bus ride to Shasta Lake</li>
+                <li>• 15-minute catamaran boat ride</li>
+                <li>• Wildlife viewing (bald eagles, ospreys)</li>
+                <li>• Stunning lake scenery</li>
+              </ul>
             </motion.div>
 
             <motion.div
-              className="bg-gradient-to-br from-teal-500 to-emerald-500 rounded-2xl p-8 text-white"
+              className="bg-white border-2 border-emerald-200 shadow-xl rounded-2xl p-10 text-black relative"
+              style={{
+                clipPath: 'polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%)',
+                borderRadius: '20px',
+                minHeight: '320px'
+              }}
               initial={{ opacity: 0, x: 50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <Sparkles className="w-12 h-12 mb-4" />
-              <h3 className="text-2xl font-bold mb-4">Crystal Room</h3>
-              <p className="text-white/90 leading-relaxed">
-                One of the highlights is the stunning Crystal Room, filled with sparkling crystals illuminated by colorful lights, creating a magical atmosphere. The Rainbow Falls underground waterfall and Underground Chapel add to the mystical experience.
-              </p>
+              <Sparkles className="w-12 h-12 mb-4 text-emerald-600" />
+              <h3 className="text-2xl font-bold mb-4 text-black">Crystal Room</h3>
+              <ul className="text-base space-y-2">
+                <li>• Sparkling crystals with colorful lights</li>
+                <li>• Rainbow Falls underground waterfall</li>
+                <li>• Underground Chapel for events</li>
+                <li>• Magical mystical atmosphere</li>
+              </ul>
             </motion.div>
           </div>
+
+          {/* YouTube Video Section */}
+          <motion.div className="mt-16 text-center"
+            initial={{ opacity: 0, y: 50 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <h3 className="text-3xl font-bold text-gray-800 mb-6">Lake Shasta Caverns Tour in Northern California</h3>
+            <div className="relative w-full max-w-4xl mx-auto">
+              <iframe
+                width="100%"
+                height="400"
+                src="https://www.youtube.com/embed/dl9lETLnahw"
+                title="Lake Shasta Caverns Tour in Northern California"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-xl shadow-lg"
+              ></iframe>
+            </div>
+          </motion.div>
         </div>
       </motion.section>
 
@@ -239,6 +277,7 @@ const LakeShastaCaverns = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
+            onClick={() => window.open('https://www.gotoretreats.com/u/65e6d763-d1c0-40b2-bac3-b358c2da44d5', '_blank')}
           >
             <span>Book Tour Now!</span>
             <ArrowRight size={20} />
@@ -261,8 +300,8 @@ const LakeShastaCaverns = () => {
             <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Cavern Gallery</h3>
             <p className="text-lg text-gray-600">Explore the underground wonders of Lake Shasta Caverns</p>
           </motion.div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['/himg1.png', '/himg2.png', '/himg3.png', '/himg4.png'].map((image, imgIndex) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+            {['/ls2.png', '/ls3.png', '/ls4.png', '/ls5.png'].map((image, imgIndex) => (
               <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -277,27 +316,18 @@ const LakeShastaCaverns = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-      </motion.section>
-
-      {/* Image Gallery Section 2 */}
-      <motion.section className="py-20 bg-white"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 1.2 }}
-      >
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {['/himg5.png', '/himg1.png', '/himg2.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+          {/* Second row for desktop */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {['/ls6.png', '/ls7.png', '/ls8.png', '/ls9.png'].map((image, imgIndex) => (
+              <motion.div key={imgIndex + 4} className="relative overflow-hidden rounded-xl shadow-lg group"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.6, delay: 1.4 + imgIndex * 0.1 }}
               >
                 <img
                   src={image}
                   alt={`Cavern ${imgIndex + 5}`}
-                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
@@ -306,42 +336,6 @@ const LakeShastaCaverns = () => {
         </div>
       </motion.section>
 
-      {/* Additional Image Gallery Section */}
-      <motion.section className="py-20 bg-gradient-to-r from-emerald-50 to-teal-50"
-        initial={{ opacity: 0, y: 50 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 1.6 }}
-      >
-        <div className="container mx-auto px-6">
-          <motion.div className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 1.8 }}
-          >
-            <h3 className="text-4xl font-bold text-gray-800 zen-font mb-4">Underground Mysteries</h3>
-            <p className="text-lg text-gray-600">Discover the hidden wonders beneath the surface</p>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {['/img1.png', '/img2.png', '/img3.png', '/img4.png'].map((image, imgIndex) => (
-              <motion.div key={imgIndex} className="relative overflow-hidden rounded-xl shadow-lg group"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 2.0 + imgIndex * 0.1 }}
-              >
-                <img
-                  src={image}
-                  alt={`Underground Mysteries ${imgIndex + 1}`}
-                  className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <h4 className="font-semibold text-sm">Cave Formations</h4>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
     </div>
   );
 };

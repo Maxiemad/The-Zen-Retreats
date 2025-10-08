@@ -128,19 +128,34 @@ const AttractionCard: React.FC<AttractionCardProps> = ({ attraction, index, inVi
           </div>
         </motion.div>
 
-        {/* Action Button */}
-        <motion.button
-          onClick={() => handleAttractionClick(attraction.name)}
-          className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold px-8 py-4 rounded-full hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 group shadow-lg hover:shadow-xl"
-          whileHover={{ scale: 1.05, y: -2 }}
-          whileTap={{ scale: 0.95 }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: index * 0.2 + 1.0 }}
-        >
-          <span>Explore Details</span>
-          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-        </motion.button>
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <motion.button
+            onClick={() => handleAttractionClick(attraction.name)}
+            className="inline-flex items-center space-x-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold px-8 py-4 rounded-full hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 group shadow-lg hover:shadow-xl"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: index * 0.2 + 1.0 }}
+          >
+            <span>Explore Details</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </motion.button>
+          
+          <motion.button
+            onClick={() => window.open('https://www.gotoretreats.com/u/65e6d763-d1c0-40b2-bac3-b358c2da44d5', '_blank')}
+            className="inline-flex items-center space-x-2 bg-white border-2 border-emerald-500 text-emerald-600 font-semibold px-8 py-4 rounded-full hover:bg-emerald-50 transition-all duration-300 group shadow-lg hover:shadow-xl"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: index * 0.2 + 1.1 }}
+          >
+            <span>Book Now</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </motion.button>
+        </div>
       </motion.div>
     </motion.div>
   );
